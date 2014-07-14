@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'PageController@pageFrontpage');
+
+Route::post('/', 'PoemController@formSubmit');

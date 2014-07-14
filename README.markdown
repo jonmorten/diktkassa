@@ -1,3 +1,53 @@
 # Diktkassa
 
 A digital baby hatch for poems.
+
+## Requirements
+
+* A LAMP box
+    * No database is required at the moment
+    * PHP 5.4 or newer
+    * [Composer](https://getcomposer.org)
+    * _php5-mcrypt_ - you can probably just run `apt-get install php5-mcrypt`
+
+## Installation
+
+### Get the code
+
+```bash
+git clone https://github.com/jjmmkk/diktkassa.git && composer install
+```
+
+### Apache
+
+```apache
+<VirtualHost *:80>
+
+	DocumentRoot /var/www/diktkassa/public
+
+	# Laravel
+	# http://laravel.com/docs/installation#pretty-urls
+	<Directory /var/www/diktkassa/public>
+		Options +FollowSymLinks
+		RewriteEngine On
+
+		RewriteCond %{REQUEST_FILENAME} !-d
+		RewriteCond %{REQUEST_FILENAME} !-f
+		RewriteRule ^ index.php [L]
+	</Directory>
+
+</VirtualHost>
+```
+
+### Environment file
+
+In the site root, e.g. _/var/www/diktkassa_, create the file _.env.php_. Base it on this template - replace the values:
+
+```php
+<?php
+
+return [
+	'mandril_api_key' => 'ABCDEFGHIJKLMNOPQRSTUV',
+	'poem_email' => 'your@email.com',
+];
+```
