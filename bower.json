@@ -1,0 +1,24 @@
+{
+  "name": "diktkassa",
+  "version": "0.0.0",
+  "authors": [
+    "Jon-Morten Kristiansen <jon.morten.kristiansen@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fontawesome": "~4.1.0",
+    "foundation": "~5.3.0",
+    "jquery": "~2.1.1",
+    "normalize.css": "~3.0.1",
+    "modernizr": "~2.8.2"
+  }
+}

@@ -1,0 +1,16 @@
+//	Foundation grid
+//	`rem-calc` takes a pixel value and turns it into rems
+//	http://foundation.zurb.com/docs/components/grid.html
+$row-width: rem-calc(1024);
+
+//	Font Awesome
+//	Font path is relative to compiled CSS
+//	http://fortawesome.github.io/Font-Awesome/get-started
+$fa-font-path: "../vendor/fontawesome/fonts";
+
+
+//	Colors
+$section_background: #edeff1;
+$text_color: #111;
+$theme_main_color: #e67e22;
+$theme_secondary_color: #d35400;

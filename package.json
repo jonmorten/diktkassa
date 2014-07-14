@@ -1,0 +1,33 @@
+{
+  "name": "diktkassa",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Jon-Morten Kristiansen <jon.morten.kristiansen@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "grunt": "~0.4.5",
+    "grunt-sass": "0.12",
+    "grunt-contrib-watch": "~0.6.1",
+    "browserify": "~4.1.11",
+    "grunt-browserify": "~2.1.0",
+    "grunt-cli": "~0.1.13",
+    "browserify-shim": "~3.5.0"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+      "Modernizr": "./public/vendor/modernizr/modernizr.js",
+      "jquery": "./public/vendor/jquery/dist/jquery.min.js"
+  },
+  "browserify-shim": {
+      "Modernizr": {
+        "exports": "Modernizr"
+      },
+      "jquery": {
+        "exports": "jQuery"
+      }
+  }
+}
