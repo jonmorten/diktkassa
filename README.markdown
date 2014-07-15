@@ -15,7 +15,7 @@ A digital baby hatch for poems.
 ### Get the code
 
 ```bash
-git clone https://github.com/jjmmkk/diktkassa.git && composer install
+git clone https://github.com/jjmmkk/diktkassa.git && cd diktkassa && composer install
 ```
 
 ### Apache
