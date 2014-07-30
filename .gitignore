@@ -8,3 +8,4 @@ Thumbs.db
 /app/storage
 /node_modules
 /public/vendor
+/public/css/app.css.map

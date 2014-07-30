@@ -1,0 +1,57 @@
+body {
+    background: none #f39c12; 
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.fa {
+    font-size: 150px;
+    color: #FFF;
+    margin-top: 40px;
+}
+h1 {
+    font-size: 75px;
+    margin-bottom: 0;
+}
+a {
+    color: #FFF;
+    text-decoration: none;
+}
+p {
+    margin-top: 10px;
+    font-size: 20px;
+}
+input, textarea, button {
+    background: none #fff;
+    border: none;
+    border-radius: 2px;
+    box-shadow: none;
+    line-height: normal;
+    color: #f39c12;
+    padding: 8px 10px;
+    width: 100%;
+    display: block;
+    margin-top: 25px;
+}
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+button {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.alpha {
+    background: none repeat scroll 0 0 #e67e22;
+    color: #fff;
+    height: 25px;
+    left: -85px;
+    letter-spacing: 0.05em;
+    line-height: 25px;
+    padding-top: 2px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 25px;
+    transform: rotate(-45deg);
+    width: 250px;
+}

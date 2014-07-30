@@ -21,7 +21,7 @@ class PoemController extends BaseController
 					->from($_ENV['poem_email'], 'Diktkassa')
 					->to($_ENV['poem_email'], 'Diktkassa');
 			});
-			return Redirect::to('/')->with('message', 'Ditt dikt er sent');
+			return Redirect::to('/')->with('message', 'Oi! <br> Hva har hendt? <br> Jo! <br> Ditt dikt er sendt');
 		}
 
 		return Redirect::to('/')->with([
