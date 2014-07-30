@@ -51,3 +51,12 @@ return [
 	'poem_email' => 'your@email.com',
 ];
 ```
+
+
+### Storage
+
+In the site root, e.g. _/var/www/diktkassa_, create the storage structure
+
+```bash
+mkdir -p app/storage/{cache,logs,meta,sessions,views}
+```
