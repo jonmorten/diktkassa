@@ -15,7 +15,7 @@ A digital baby hatch for poems.
 ### Get the code
 
 ```bash
-git clone https://github.com/jjmmkk/diktkassa.git && composer install
+git clone https://github.com/jjmmkk/diktkassa.git && cd diktkassa && composer install
 ```
 
 ### Apache
@@ -50,4 +50,13 @@ return [
 	'mandril_api_key' => 'ABCDEFGHIJKLMNOPQRSTUV',
 	'poem_email' => 'your@email.com',
 ];
+```
+
+
+### Storage
+
+In the site root, e.g. _/var/www/diktkassa_, create the storage structure
+
+```bash
+mkdir -p app/storage/{cache,logs,meta,sessions,views}
 ```
