@@ -5,13 +5,14 @@
   "author": "Jon-Morten Kristiansen <jon.morten.kristiansen@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "grunt": "~0.4.5",
-    "grunt-sass": "0.12",
-    "grunt-contrib-watch": "~0.6.1",
     "browserify": "~4.1.11",
+    "browserify-shim": "~3.5.0",
+    "grunt": "~0.4.5",
     "grunt-browserify": "~2.1.0",
     "grunt-cli": "~0.1.13",
-    "browserify-shim": "~3.5.0"
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-sass": "0.12",
+    "uglifyify": "^2.5.0"
   },
   "browserify": {
     "transform": [
@@ -19,15 +20,15 @@
     ]
   },
   "browser": {
-      "Modernizr": "./public/vendor/modernizr/modernizr.js",
-      "jquery": "./public/vendor/jquery/dist/jquery.min.js"
+    "Modernizr": "./public/vendor/modernizr/modernizr.js",
+    "jquery": "./public/vendor/jquery/dist/jquery.min.js"
   },
   "browserify-shim": {
-      "Modernizr": {
-        "exports": "Modernizr"
-      },
-      "jquery": {
-        "exports": "jQuery"
-      }
+    "Modernizr": {
+      "exports": "Modernizr"
+    },
+    "jquery": {
+      "exports": "jQuery"
+    }
   }
 }
