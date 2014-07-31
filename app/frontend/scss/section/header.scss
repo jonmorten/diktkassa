@@ -1,7 +1,8 @@
 body {
     background: none #f39c12;
-    text-align: center;
+    color: #fff;
     font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
 }
 .fa {
     font-size: 150px;
@@ -20,26 +21,51 @@ p {
     margin-top: 10px;
     font-size: 20px;
 }
-input, textarea, button {
+input,
+textarea,
+button {
     background: none #fff;
-    border: none;
     border-radius: 2px;
+    border: none;
     box-shadow: none;
+    display: block;
+    letter-spacing: 0.025em;
     line-height: normal;
-    color: #f39c12;
+    margin: 25px auto;
     padding: 8px 10px;
     width: 100%;
-    display: block;
-    margin-top: 25px;
+}
+input,
+textarea {
+    color: #000;
 }
 textarea {
     resize: vertical;
     min-height: 150px;
 }
 button {
+    background: #e67e22;
+    color: #fff;
     width: 75%;
-    margin-left: auto;
-    margin-right: auto;
+    border: 1px solid transparent;
+}
+button:focus {
+    border: 1px solid #fff;
+}
+::-webkit-input-placeholder {
+    color: #f39c12;
+    opacity: 1;
+}
+:-moz-placeholder {
+    color: #f39c12;
+    opacity: 1;
+}
+::-moz-placeholder {
+    color: #f39c12;
+   opacity: 1;
+}
+:-ms-input-placeholder {
+   color: #f39c12;
 }
 .project-status {
     background: none repeat scroll 0 0 #e67e22;

@@ -1,5 +1,5 @@
 <?php if ($message) { ?>
-	<p><?php echo $message ?></p>
+	<p class="feedback"><?php echo $message ?></p>
 <?php } ?>
 
 <form
@@ -8,16 +8,16 @@
 	class="columns small-12 small-centered medium-7 medium-centered large-5 large-centered"
 >
 	<input
+		autocomplete="off"
 		id="poem_title"
 		name="poem_title"
+		placeholder="Her skal diktets tittel"
 		type="text"
 		value="<?php echo $poemTitle ?: '' ?>"
-		placeholder="Her skal diktets tittel"
 	>
 	<textarea
 		id="poem_text"
 		name="poem_text"
-		rows="7"
 		placeholder="Og her dets kapittel"
 	><?php echo $poemText ?: '' ?></textarea>
 	<button
