@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body>
-		<span class="alpha">Alpha</span>
+		<span class="project-status">Alpha</span>
 		<header class="main row">
 			<div class="columns small-12">
 				<i class="fa fa-archive"></i>

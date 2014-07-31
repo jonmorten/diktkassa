@@ -1,5 +1,5 @@
 body {
-    background: none #f39c12; 
+    background: none #f39c12;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
 }
@@ -41,7 +41,7 @@ button {
     margin-left: auto;
     margin-right: auto;
 }
-.alpha {
+.project-status {
     background: none repeat scroll 0 0 #e67e22;
     color: #fff;
     height: 25px;
@@ -52,6 +52,7 @@ button {
     position: absolute;
     text-transform: uppercase;
     top: 25px;
+    -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
     width: 250px;
 }
