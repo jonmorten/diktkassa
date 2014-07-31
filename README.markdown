@@ -16,7 +16,7 @@ A digital baby hatch for poems.
 ### Get the code
 
 ```bash
-git clone https://github.com/jjmmkk/diktkassa.git && cd diktkassa && composer install && npm install && bower install
+git clone https://github.com/jjmmkk/diktkassa.git && cd diktkassa && composer install && npm install && bower install && grunt build
 ```
 
 ### Apache

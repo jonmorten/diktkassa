@@ -9,3 +9,5 @@ Thumbs.db
 /node_modules
 /public/vendor
 /public/css/app.css.map
+/public/css/app.css
+/public/js/app.js
