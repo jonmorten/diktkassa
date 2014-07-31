@@ -9,13 +9,14 @@ A digital baby hatch for poems.
     * PHP 5.4 or newer
     * [Composer](https://getcomposer.org)
     * _php5-mcrypt_ - you can probably just run `apt-get install php5-mcrypt`
+    * [Bower](http://bower.io)
 
 ## Installation
 
 ### Get the code
 
 ```bash
-git clone https://github.com/jjmmkk/diktkassa.git && cd diktkassa && composer install
+git clone https://github.com/jjmmkk/diktkassa.git && cd diktkassa && composer install && npm install && bower install
 ```
 
 ### Apache
