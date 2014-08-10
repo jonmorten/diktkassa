@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', 'PageController@pageFrontpage');
+Route::get('/',[
+	'as' => 'frontpage',
+	'uses' => 'PageController@pageFrontpage',
+]);
 
-Route::post('/', 'PoemController@formSubmit');
+Route::post('/', [
+	'as' => 'poemFormSubmit',
+	'uses' => 'PoemController@formSubmit',
+]);

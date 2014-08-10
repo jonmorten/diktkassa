@@ -21,13 +21,11 @@ class PoemController extends BaseController
 					->from($_ENV['poem_email'], 'Diktkassa')
 					->to($_ENV['poem_email'], 'Diktkassa');
 			});
-			return Redirect::to('/')->with('message', 'Oi! <br> Hva har hendt? <br> Jo! <br> Ditt dikt er sendt');
+
+			return Redirect::route('frontpage')->with('message', 'Oi! <br> Hva har hendt? <br> Jo! <br> Ditt dikt er sendt');
 		}
 
-		return Redirect::to('/')->with([
-			'poemTitle' => $poemTitle,
-			'poemText' => $poemText,
-		]);
+		return Redirect::route('frontpage')->withInput(Input::only('poem_title', 'poem_text'));
 	}
 
 }
