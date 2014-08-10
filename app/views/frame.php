@@ -20,9 +20,9 @@
 		<span class="project-status">Alpha</span>
 		<header class="main row">
 			<div class="columns small-12">
-				<i class="fa fa-archive"></i>
 				<a href="/">
-					<h1>diktkassa</h1>
+					<i class="site-icon fa fa-archive"></i>
+					<h1 class="site-name">diktkassa</h1>
 				</a>
 			</div>
 		</header>

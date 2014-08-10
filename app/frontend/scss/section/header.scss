@@ -4,12 +4,12 @@ body {
     font-family: 'Josefin Sans', sans-serif;
     text-align: center;
 }
-.fa {
+.site-icon {
     font-size: 150px;
-    color: #FFF;
+    color: #fff;
     margin-top: 40px;
 }
-h1 {
+.site-name {
     font-size: 75px;
     margin-bottom: 0;
 }
@@ -20,6 +20,9 @@ a {
 p {
     margin-top: 10px;
     font-size: 20px;
+}
+form {
+    text-align: left;
 }
 input,
 textarea,
