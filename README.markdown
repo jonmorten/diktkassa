@@ -50,6 +50,7 @@ In the site root, e.g. _/var/www/diktkassa_, create the file _.env.php_. Base it
 return [
 	'ga_tracking_id' => 'UA-XXXXXXXX-X',
 	'mandril_api_key' => 'ABCDEFGHIJKLMNOPQRSTUV',
+	'meta_description' => 'A digital baby hatch for poems.',
 	'poem_email' => 'your@email.com',
 ];
 ```

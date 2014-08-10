@@ -5,7 +5,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<title>Diktkassa</title>
-		<meta name="description" content="(•.•)">
+		<?php if (isset($_ENV['meta_description'])) { ?>
+			<meta name="description" content="<?php echo $_ENV['meta_description']; ?>">
+		<?php } ?>
 
 		<link rel="shortcut icon" href="favicon.ico">
 
