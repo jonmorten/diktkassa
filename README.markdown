@@ -5,11 +5,11 @@ A digital baby hatch for poems.
 ## Requirements
 
 * A LAMP box
-    * No database is required at the moment
-    * PHP 5.4 or newer
-    * [Composer](https://getcomposer.org)
-    * _php5-mcrypt_ - you can probably just run `apt-get install php5-mcrypt`
-    * [Bower](http://bower.io)
+	* No database is required at the moment
+	* PHP 5.4 or newer
+	* [Composer](https://getcomposer.org)
+	* _php5-mcrypt_ - you can probably just run `apt-get install php5-mcrypt`
+	* [Bower](http://bower.io)
 
 ## Installation
 
@@ -55,7 +55,6 @@ return [
 ```
 
 The Google Analytics tracking ID is optional.
-
 
 ### Storage
 
