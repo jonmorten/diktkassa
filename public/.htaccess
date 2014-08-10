@@ -5,10 +5,14 @@
 
     RewriteEngine On
 
-    # Redirect Trailing Slashes...
+    # Force non-www
+    RewriteCond %{HTTP_HOST} www.(.*)$ [NC]
+    RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+    # Redirect trailing slashes
     RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-    # Handle Front Controller...
+    # Handle front controller
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]

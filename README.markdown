@@ -32,6 +32,14 @@ git clone https://github.com/jjmmkk/diktkassa.git && cd diktkassa && composer in
 		Options +FollowSymLinks
 		RewriteEngine On
 
+		# Force non-www
+		RewriteCond %{HTTP_HOST} www.(.*)$ [NC]
+		RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+		# Redirect trailing slashes
+		RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+		# Handle front controller
 		RewriteCond %{REQUEST_FILENAME} !-d
 		RewriteCond %{REQUEST_FILENAME} !-f
 		RewriteRule ^ index.php [L]
