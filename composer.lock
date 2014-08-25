@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c2bccf4587813ec8a6d3619438fc8604",
+    "hash": "04e5dad5c9e5293038076d78ff74bab0",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -534,6 +534,55 @@
                 "psr-3"
             ],
             "time": "2014-06-04 16:30:04"
+        },
+        {
+            "name": "msurguy/honeypot",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/msurguy/Honeypot.git",
+                "reference": "747f52eceb0fa133feefe523e8b36039dc59b0e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/msurguy/Honeypot/zipball/747f52eceb0fa133feefe523e8b36039dc59b0e4",
+                "reference": "747f52eceb0fa133feefe523e8b36039dc59b0e4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "4.*",
+                "illuminate/support": "4.*",
+                "illuminate/translation": "4.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Msurguy\\Honeypot\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maksim Surguy",
+                    "email": "m.surguy@gmail.com"
+                }
+            ],
+            "description": "Honeypot spam prevention",
+            "keywords": [
+                "Forms",
+                "Honeypot",
+                "laravel",
+                "spam"
+            ],
+            "time": "2014-07-01 16:00:51"
         },
         {
             "name": "nesbot/carbon",
@@ -1772,9 +1821,10 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "msurguy/honeypot": 20
+    },
+    "prefer-stable": false,
     "platform": [
 
     ],

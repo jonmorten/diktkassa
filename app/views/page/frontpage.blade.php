@@ -11,49 +11,59 @@
 	])
 }}
 
-	<p class="form-control">
-		{{ Form::label('poem_title', 'Tittelen', ['class' => 'hide']) }}
-		@if ($errors->poem->has('poem_title'))
+	{{ Form::honeypot('user_name', 'user_time') }}
+	@if ($errors->poem->has('user_time'))
+		<p>
 			<span class="help-block">
 				<i class="fa fa-exclamation-circle"></i>
-				{{ $errors->poem->first('poem_title') }}
+				{{ $errors->poem->first('user_time') }}
 			</span>
-		@endif
-		{{
-			Form::text(
-				'poem_title',
-				null,
-				[
-					'autocomplete' => 'off',
-					'placeholder' => 'Her skal diktets tittel',
-					'spellcheck' => 'false',
-				]
-			)
-		}}
-	</p>
+		</p>
+	@else
+		<p class="form-control">
+			{{ Form::label('poem_title', 'Tittelen', ['class' => 'hide']) }}
+			@if ($errors->poem->has('poem_title'))
+				<span class="help-block">
+					<i class="fa fa-exclamation-circle"></i>
+					{{ $errors->poem->first('poem_title') }}
+				</span>
+			@endif
+			{{
+				Form::text(
+					'poem_title',
+					null,
+					[
+						'autocomplete' => 'off',
+						'placeholder' => 'Her skal diktets tittel',
+						'spellcheck' => 'false',
+					]
+				)
+			}}
+		</p>
 
-	<p class="form-control">
-		{{ Form::label('poem_text', 'Teksten', ['class' => 'hide']) }}
-		@if ($errors->poem->has('poem_text'))
-			<span class="help-block">
-				<i class="fa fa-exclamation-circle"></i>
-				{{ $errors->poem->first('poem_text') }}
-			</span>
-		@endif
-		{{
-			Form::textarea(
-				'poem_text',
-				null,
-				[
-					'placeholder' => 'Og her dets kapittel',
-					'spellcheck' => 'false',
-				]
-			)
-		}}
-	</p>
+		<p class="form-control">
+			{{ Form::label('poem_text', 'Teksten', ['class' => 'hide']) }}
+			@if ($errors->poem->has('poem_text'))
+				<span class="help-block">
+					<i class="fa fa-exclamation-circle"></i>
+					{{ $errors->poem->first('poem_text') }}
+				</span>
+			@endif
+			{{
+				Form::textarea(
+					'poem_text',
+					null,
+					[
+						'placeholder' => 'Og her dets kapittel',
+						'spellcheck' => 'false',
+					]
+				)
+			}}
+		</p>
 
-	<p class="form-control">
-		{{ Form::button('Send', ['type' => 'submit']) }}
-	</p>
+		<p class="form-control">
+			{{ Form::button('Send', ['type' => 'submit']) }}
+		</p>
+	@endif
 
 {{ Form::close() }}

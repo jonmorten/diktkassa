@@ -4,11 +4,15 @@ class PoemController extends BaseController
 {
 
 	protected $formRules = [
+		'user_name' => 'honeypot',
+		'user_time' => 'required|honeytime:2',
 		'poem_title' => 'required',
 		'poem_text' => 'required',
 	];
 
 	protected $formMessages = [
+		'honeypot' => 'Vi tror du er en robot',
+		'user_time.honeytime' => 'Vi tror du er en robot',
 		'poem_title.required' => 'Diktet må ha en tittel',
 		'poem_text.required' => 'Diktet må ha en tekst',
 	];
