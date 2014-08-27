@@ -13,12 +13,12 @@ class PageController extends BaseController
 		return View::make('frame')->nest('content', 'page/frontpage', $data);
 	}
 
-    public function pageRandomPoem()
-    {
-        $data = [
-            'poem' => PoemController::getRandomPoem(),
-        ];
-        return View::make('frame')->nest('content', 'page/randomPoem', $data);
-    }
+	public function pageRandomPoem()
+	{
+		$data = [
+			'poem' => PoemController::getRandomPoem(),
+		];
+		return View::make('frame')->nest('content', 'page/randomPoem', $data);
+	}
 
 }
