@@ -31,13 +31,19 @@ class PoemController extends BaseController
 				->withErrors($validator, 'poem');
 		}
 
+		$poemTitle = htmlentities(Input::get('poem_title'));
 		$poemText = htmlentities(Input::get('poem_text'));
-		$data = [
-			'title' => htmlentities(Input::get('poem_title')),
+
+		$poem = new Poem();
+		$poem->title = $poemTitle;
+		$poem->text = $poemText;
+		$poem->save();
+
+		$emailData = [
+			'title' => $poemTitle,
 			'text' => preg_replace('/\r\n|\r|\n/', '<br>', $poemText),
 		];
-
-		Mail::send('emails.poem', $data, function($message)
+		Mail::send('emails.poem', $emailData, function($message)
 		{
 			$message
 				->subject('Dikt')

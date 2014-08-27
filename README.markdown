@@ -5,7 +5,7 @@ A digital baby hatch for poems.
 ## Requirements
 
 * A LAMP box
-	* No database is required at the moment
+	* MySQL
 	* PHP 5.4 or newer
 	* [Composer](https://getcomposer.org)
 	* _php5-mcrypt_ - you can probably just run `apt-get install php5-mcrypt`
@@ -17,6 +17,26 @@ A digital baby hatch for poems.
 
 ```bash
 git clone https://github.com/jjmmkk/diktkassa.git && cd diktkassa && composer install && npm install && bower install && grunt build
+```
+
+### Database
+
+Currently only MySQL is supported.
+
+#### Table
+
+Create a table to store the poems.
+
+```sql
+CREATE TABLE IF NOT EXISTS poems (
+	id INTEGER(32) NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (id),
+
+	created_at VARCHAR(255) NOT NULL,
+	text MEDIUMTEXT NOT NULL,
+	title VARCHAR(255) NOT NULL,
+	updated_at VARCHAR(255) NOT NULL
+) ENGINE=InnoDB;
 ```
 
 ### Apache
@@ -56,6 +76,12 @@ In the site root, e.g. _/var/www/diktkassa_, create the file _.env.php_. Base it
 <?php
 
 return [
+	'database' => [
+		'host' => 'localhost',
+		'database' => 'diktkassa',
+		'username' => 'diktkassa',
+		'password' => 'diktkassa',
+	],
 	'ga_tracking_id' => 'UA-XXXXXXXX-X',
 	'mandril_api_key' => 'ABCDEFGHIJKLMNOPQRSTUV',
 	'meta_description' => 'A digital baby hatch for poems.',
