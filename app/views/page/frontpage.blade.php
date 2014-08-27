@@ -20,6 +20,15 @@
 			</span>
 		</p>
 	@else
+		<div class="row">
+			<p class="form-action columns small-12 medium-6">
+				<a href="{{ URL::route('randomPoem') }}" class="button">Les</a>
+			</p>
+			<p class="form-action columns small-12 medium-6">
+				{{ Form::button('Send', ['type' => 'submit', 'class' => 'button']) }}
+			</p>
+		</div>
+
 		<p class="form-control">
 			{{ Form::label('poem_title', 'Tittelen', ['class' => 'hide']) }}
 			@if ($errors->poem->has('poem_title'))
@@ -34,6 +43,7 @@
 					null,
 					[
 						'autocomplete' => 'off',
+						'class' => 'text-field',
 						'placeholder' => 'Her skal diktets tittel',
 						'spellcheck' => 'false',
 					]
@@ -54,15 +64,12 @@
 					'poem_text',
 					null,
 					[
+						'class' => 'text-field',
 						'placeholder' => 'Og her dets kapittel',
 						'spellcheck' => 'false',
 					]
 				)
 			}}
-		</p>
-
-		<p class="form-control">
-			{{ Form::button('Send', ['type' => 'submit']) }}
 		</p>
 	@endif
 

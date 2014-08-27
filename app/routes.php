@@ -20,3 +20,8 @@ Route::post('/', [
 	'as' => 'poemFormSubmit',
 	'uses' => 'PoemController@formSubmit',
 ]);
+
+Route::get('/les',[
+    'as' => 'randomPoem',
+    'uses' => 'PageController@pageRandomPoem',
+]);

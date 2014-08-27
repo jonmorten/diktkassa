@@ -54,4 +54,13 @@ class PoemController extends BaseController
 		return Redirect::route('frontpage')->with('message', 'Oi - hva har hendt? <br> Jo: ditt dikt er sendt!');
 	}
 
+	public static function getRandomPoem()
+	{
+		$poemCount = Poem::count();
+		$randomPoemId = rand(1, $poemCount);
+		$randomPoem = Poem::find($randomPoemId);
+		$randomPoem['text'] = preg_replace('/\r\n|\r|\n/', '<br>', $randomPoem['text']);
+		return $randomPoem;
+	}
+
 }

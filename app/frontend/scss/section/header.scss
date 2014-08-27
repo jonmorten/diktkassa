@@ -4,14 +4,19 @@ body {
     font-family: 'Josefin Sans', sans-serif;
     text-align: center;
 }
+header.main {
+    margin-bottom: 30px;
+}
 .site-icon {
-    font-size: 150px;
+    font-size: 75px;
     color: #fff;
     margin-top: 40px;
 }
 .site-name {
     font-size: 75px;
     margin-bottom: 0;
+    display: inline-block;
+    margin-left: 30px;
 }
 a {
     color: #FFF;
@@ -24,9 +29,14 @@ p {
 form {
     text-align: left;
 }
-input,
-textarea,
-button {
+.form-control {
+    margin: 25px 0;
+}
+.form-action {
+    margin: 0;
+}
+.text-field,
+.button {
     background: none #fff;
     border-radius: 2px;
     border: none;
@@ -34,25 +44,24 @@ button {
     display: block;
     letter-spacing: 0.025em;
     line-height: normal;
-    margin: 25px auto;
     padding: 8px 10px;
     width: 100%;
 }
-input,
-textarea {
+.text-field {
+    margin: 0 auto;
     color: #000;
 }
 textarea {
     resize: vertical;
     min-height: 150px;
 }
-button {
+.button {
     background: #e67e22;
     color: #fff;
-    width: 75%;
     border: 1px solid transparent;
+    text-align: center;
 }
-button:focus {
+.button:focus {
     border: 1px solid #fff;
 }
 ::-webkit-input-placeholder {
@@ -84,4 +93,38 @@ button:focus {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
     width: 250px;
+}
+.help-block {
+    display: block;
+    margin-bottom: 5px;
+}
+.poem {
+    background: none repeat scroll 0 0 white;
+    border-radius: 3px;
+    color: #f39c12;
+    margin: 20px 0;
+    padding: 30px 45px;
+    text-align: left;
+
+    .poem-title {
+        margin-top: 0;
+        letter-spacing: 0.025em;
+    }
+    .poem-text {
+        line-height: 1.5;
+        font-size: 18px;
+        letter-spacing: 0.025em;
+    }
+}
+@media #{$small-only} {
+    .form-action {
+        margin-top: 25px;
+    }
+    header.main {
+        margin-bottom: 0;
+    }
+    .site-name {
+        margin: 20px 0 0;
+        display: block;
+    }
 }
