@@ -2,10 +2,10 @@
     <div class="columns small-12 small-centered medium-7 medium-centered large-5 large-centered">
         <div class="row">
             <p class="form-action columns small-12 medium-6">
-                <a class="button" href="{{ URL::route('frontpage') }}">Skriv</a>
+                <a class="button" href="{{ URL::route('randomPoem') }}">Les et til</a>
             </p>
             <p class="form-action columns small-12 medium-6">
-                <a class="button" href="{{ URL::route('randomPoem') }}">Les et til</a>
+                <a class="button" href="{{ URL::route('frontpage') }}">Skriv</a>
             </p>
         </div>
         <article class="poem">
