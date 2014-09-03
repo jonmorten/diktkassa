@@ -95,9 +95,10 @@ textarea {
     text-align: left;
 
     .poem-title {
-        font-size: 30px;
-        margin-top: 5px;
         font-family: 'Josefin Sans', sans-serif;
+        font-size: 30px;
+        line-height: 1.25;
+        margin: 5px 0 10px;
     }
     .poem-text {
         line-height: 1.5;
