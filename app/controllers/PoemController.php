@@ -56,8 +56,18 @@ class PoemController extends BaseController
 
 	public static function getRandomPoem()
 	{
-		$poemCount = Poem::count();
-		$randomPoemId = rand(1, $poemCount);
+		//	To avoid getting the same poems repeatedly, store the last viewed
+		//	poems in session and exclude them from the random pool.
+		$poemTableName = with(new Poem)->getTable();
+		$allPoemIds = DB::table($poemTableName)->lists('id');
+		$viewedPoemTrailLength = min(20, max(0, count($allPoemIds) - 1));
+		$lastViewedPoemIds = array_slice(Session::get('last_viewed_poem_ids', []), 0, $viewedPoemTrailLength);
+		$randomPoemIdsPool = array_values(array_diff($allPoemIds, $lastViewedPoemIds));
+		$randomPoemPoolIndex = mt_rand(0,max(0, count($randomPoemIdsPool) - 1));
+		$randomPoemId = $randomPoemIdsPool[$randomPoemPoolIndex];
+		array_unshift($lastViewedPoemIds, $randomPoemId);
+		Session::set('last_viewed_poem_ids', $lastViewedPoemIds);
+
 		$randomPoem = Poem::find($randomPoemId);
 		$randomPoem['text'] = preg_replace('/\r\n|\r|\n/', '<br>', $randomPoem['text']);
 		return $randomPoem;
