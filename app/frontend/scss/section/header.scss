@@ -1,7 +1,8 @@
 body {
     background: none #f39c12;
     color: #fff;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 16px;
     text-align: center;
 }
 header.main {
@@ -13,9 +14,10 @@ header.main {
     margin-top: 40px;
 }
 .site-name {
+    display: inline-block;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 75px;
     margin-bottom: 0;
-    display: inline-block;
     margin-left: 30px;
 }
 a {
@@ -24,7 +26,7 @@ a {
 }
 p {
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 16px;
 }
 form {
     text-align: left;
@@ -42,7 +44,6 @@ form {
     border: none;
     box-shadow: none;
     display: block;
-    letter-spacing: 0.025em;
     line-height: normal;
     padding: 8px 10px;
     width: 100%;
@@ -86,7 +87,7 @@ textarea {
     left: -85px;
     letter-spacing: 0.05em;
     line-height: 25px;
-    padding-top: 2px;
+    padding-top: 1px;
     position: absolute;
     text-transform: uppercase;
     top: 25px;
@@ -107,13 +108,13 @@ textarea {
     text-align: left;
 
     .poem-title {
+        font-size: 36px;
+        font-weight: normal;
         margin-top: 0;
-        letter-spacing: 0.025em;
     }
     .poem-text {
         line-height: 1.5;
-        font-size: 18px;
-        letter-spacing: 0.025em;
+        font-size: 16px;
     }
 }
 @media #{$small-only} {
