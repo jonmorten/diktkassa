@@ -11,6 +11,8 @@
 
 		<link rel="shortcut icon" href="favicon.ico">
 
+		<meta property="og:image" content="<?php echo URL::asset('images/diktkassa.png'); ?>">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="vendor/normalize.css/normalize.css">
