@@ -31,6 +31,25 @@
 			<?php echo $content; ?>
 		</div>
 
+		<footer class="main row">
+			<div class="columns small-12 small-centered medium-7 medium-centered large-5 large-centered">
+				<a class="info-button" href="#">
+					Informasjon
+				</a>
+				<br>
+				<br>
+				<div class="info-text">
+					Her kan du anonymt legge inn dine egenskrevne dikt.<br>
+					Du kan også lese andre sine dikt. <br>
+					Et utvalg av diktene skal til slutt bli til boken «Norges anonyme diktere». 
+					<br><br>
+					Ved å legge inn et dikt bekrefter du at du har rettighetene til dette diktet,<br>
+					at det ikke er publisert før, <br>
+					og at vi har lov til å publisere diktet på denne nettsiden og i vår kommende diktbok.<br><br><br>
+				</div>
+			</div>
+		</footer>
+
 		<script src="js/app.js"></script>
 
 		<?php if (isset($_ENV['ga_tracking_id'])) { ?>

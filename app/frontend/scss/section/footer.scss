@@ -1,0 +1,13 @@
+footer.main {
+	.info-text {
+		display: none;
+		text-align: left;
+	}
+	.info-button {
+		font-size: 18px;
+
+		&.active {
+			font-weight: 700;
+		}
+	}
+}
