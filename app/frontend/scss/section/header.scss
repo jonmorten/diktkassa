@@ -61,6 +61,8 @@ textarea {
     color: #fff;
     border: 1px solid transparent;
     text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
 }
 .button:focus {
     border: 1px solid #fff;
@@ -93,9 +95,10 @@ textarea {
     text-align: left;
 
     .poem-title {
-        font-size: 36px;
+        font-size: 30px;
         font-weight: normal;
         margin-top: 0;
+        font-family: 'Josefin Sans', sans-serif;
     }
     .poem-text {
         line-height: 1.5;
