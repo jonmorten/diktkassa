@@ -17,7 +17,6 @@
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body>
-		<span class="project-status">Beta</span>
 		<header class="main row">
 			<div class="columns small-12">
 				<a href="/">
