@@ -8,23 +8,24 @@ body {
 header.main {
     margin-bottom: 30px;
 }
-.header-link {
-    position: relative;
-    display: inline-block;
-}
-.poem-count {
-    color: #f39c12;
-    font-size: 12px;
-    left: 0;
-    position: absolute;
-    text-align: center;
-    top: 82px;
-    width: 75px;
-}
 .site-icon {
-    font-size: 75px;
     color: #fff;
+    font-size: 75px;
     margin-top: 40px;
+    position: relative;
+}
+.site-icon:after {
+    bottom: 1.5em;
+    color: #f39c12;
+    content: attr(data-icon-text);
+    font-family: 'Helvetica', sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    left: 0;
+    line-height: 1;
+    position: absolute;
+    right: 0;
+    text-align: center;
 }
 .site-name {
     display: inline-block;
@@ -119,11 +120,6 @@ textarea {
     }
 }
 @media #{$small-only} {
-    .poem-count {
-        width: 100%;
-        left: 0;
-        right: 0;
-    }
     .form-action {
         margin-top: 25px;
     }

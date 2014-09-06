@@ -20,10 +20,12 @@
 	</head>
 	<body>
 		<header class="main row">
-			<div class="columns small-12">
-				<a class="header-link" href="/">
-					<i class="site-icon fa fa-archive"></i>
-					<span class="poem-count"><?php print $poemCount; ?> dikt</span>
+			<div class="columns">
+				<a href="/">
+					<i
+						class="site-icon fa fa-archive"
+						data-icon-text="<?php print $poemCount; ?> dikt"
+					></i>
 					<h1 class="site-name">diktkassa</h1>
 				</a>
 			</div>
