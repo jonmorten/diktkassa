@@ -120,14 +120,21 @@ textarea {
     }
 }
 @media #{$small-only} {
-    .form-action {
-        margin-top: 25px;
-    }
     header.main {
         margin-bottom: 0;
     }
+    .site-icon {
+        margin-top: 15px;
+    }
     .site-name {
         margin: 20px 0 0;
-        display: block;
+        font-size: 44px;
+    }
+
+    .form-action {
+        margin-top: 20px;
+    }
+    .form-control {
+        margin: 20px 0;
     }
 }

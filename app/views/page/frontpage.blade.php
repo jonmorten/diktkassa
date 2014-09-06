@@ -21,10 +21,10 @@
 		</p>
 	@else
 		<div class="row">
-			<p class="form-action columns small-12 medium-6">
+			<p class="form-action columns small-6">
 				<a href="{{ URL::route('randomPoem') }}" class="button">Les</a>
 			</p>
-			<p class="form-action columns small-12 medium-6">
+			<p class="form-action columns small-6">
 				{{ Form::button('Send', ['type' => 'submit', 'class' => 'button']) }}
 			</p>
 		</div>
