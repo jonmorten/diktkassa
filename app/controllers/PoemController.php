@@ -75,9 +75,7 @@ class PoemController extends BaseController
 
 	public static function getPoemCount()
 	{
-		$poemTableName = with(new Poem)->getTable();
-		$allPoemIds = DB::table($poemTableName)->lists('id');
-		return count($allPoemIds);
+		return Poem::count();
 	}
 
 }
