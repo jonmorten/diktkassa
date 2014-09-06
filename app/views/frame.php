@@ -45,7 +45,7 @@
 				<div class="info-text">
 					Her kan du anonymt legge inn dine egenskrevne dikt.<br>
 					Du kan også lese andre sine dikt. <br>
-					Et utvalg av diktene skal til slutt bli til boken «Norges anonyme diktere». 
+					Et utvalg av diktene skal til slutt bli til boken «Norges anonyme diktere».
 					<br><br>
 					Ved å legge inn et dikt bekrefter du at du har rettighetene til dette diktet,<br>
 					at det ikke er publisert før, <br>
