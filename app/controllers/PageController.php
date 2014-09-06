@@ -10,7 +10,7 @@ class PageController extends BaseController
 			'poemTitle' => Session::get('poemTitle', false),
 			'poemText' => Session::get('poemText', false),
 		];
-		return View::make('frame')->nest('content', 'page/frontpage', $data);
+		return View::make('frame', array('poemCount' => PoemController::getPoemCount()))->nest('content', 'page/frontpage', $data);
 	}
 
 	public function pageRandomPoem()
@@ -18,7 +18,7 @@ class PageController extends BaseController
 		$data = [
 			'poem' => PoemController::getRandomPoem(),
 		];
-		return View::make('frame')->nest('content', 'page/randomPoem', $data);
+		return View::make('frame', array('poemCount' => PoemController::getPoemCount()))->nest('content', 'page/randomPoem', $data);
 	}
 
 }

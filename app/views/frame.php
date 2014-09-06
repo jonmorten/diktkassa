@@ -21,8 +21,9 @@
 	<body>
 		<header class="main row">
 			<div class="columns small-12">
-				<a href="/">
+				<a class="header-link" href="/">
 					<i class="site-icon fa fa-archive"></i>
+					<span class="poem-count"><?php print $poemCount; ?> dikt</span>
 					<h1 class="site-name">diktkassa</h1>
 				</a>
 			</div>

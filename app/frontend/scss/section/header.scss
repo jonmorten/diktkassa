@@ -8,6 +8,19 @@ body {
 header.main {
     margin-bottom: 30px;
 }
+.header-link {
+    position: relative;
+    display: inline-block;
+}
+.poem-count {
+    color: #f39c12;
+    font-size: 12px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 82px;
+    width: 75px;
+}
 .site-icon {
     font-size: 75px;
     color: #fff;
@@ -106,6 +119,11 @@ textarea {
     }
 }
 @media #{$small-only} {
+    .poem-count {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
     .form-action {
         margin-top: 25px;
     }
