@@ -11,6 +11,7 @@ $(document).ready(function( $ ) {
 		e.preventDefault();
 		$('.info-button').toggleClass('active');
 		$('.info-text').toggle();
+		$('html, body').animate({scrollTop:$(document).height()}, 'slow');
 	});
 
 });
