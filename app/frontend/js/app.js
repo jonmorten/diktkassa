@@ -2,6 +2,8 @@ require('Modernizr');
 
 var $ = require('jquery');
 
+require('foundation');
+$(document).foundation();
 
 $(document).ready(function( $ ) {
 	'use strict';

@@ -119,6 +119,29 @@ textarea {
         font-size: 16px;
     }
 }
+.f-dropdown.open {
+    left: 15px!important;
+    right: 15px!important;
+    width: auto;
+    top: 43px!important;
+    padding: 0;
+}
+.f-dropdown.open:before,
+.f-dropdown.open:after {
+    right: 17px!important;
+    left: auto!important;
+}
+.split-button-icon:after {
+    border: 0 none!important;
+    content: "\f039"!important;
+    font-family: "FontAwesome"!important;
+    top: 50%!important;
+    margin-top: -9px;
+    margin-left: -9px!important;
+}
+button:hover, button:focus, .button:hover, .button:focus {
+    background-color: #CE7323;
+}
 @media #{$small-only} {
     header.main {
         margin-bottom: 0;
