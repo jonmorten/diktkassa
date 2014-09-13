@@ -131,15 +131,36 @@ textarea {
     right: 17px!important;
     left: auto!important;
 }
-.split-button-icon:after {
-    border: 0 none!important;
-    content: "\f039"!important;
-    font-family: "FontAwesome"!important;
-    top: 50%!important;
-    margin-top: -9px;
-    margin-left: -9px!important;
+.flex-button {
+    display: flex;
 }
-button:hover, button:focus, .button:hover, .button:focus {
+.button.split {
+    flex-grow: 1;
+    padding: 8px 10px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.split-button-icon {
+    background: #e67e22;
+    height: 42px;
+    width: 50px;
+    min-width: 50px;
+    border-bottom-right-radius: 1px;
+    border-top-right-radius: 1px;
+    position: relative;
+    border-left: 1px solid #ffcca0;
+    transition: background-color 300ms ease-out;
+    cursor: pointer;
+}
+.split-button-icon:after {
+    content: "\f039";
+    font-family: "FontAwesome";
+    top: 50%;
+    margin-top: -12px;
+    margin-left: -9px;
+    position: absolute;
+}
+button:hover, button:focus, .button:hover, .button:focus, .split-button-icon:hover, .split-button-icon:focus {
     background-color: #CE7323;
 }
 @media #{$small-only} {
