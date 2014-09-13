@@ -73,6 +73,31 @@ class PoemController extends BaseController
 		return $randomPoem;
 	}
 
+	public static function getLatestPoem()
+	{
+		$poems = Poem::orderBy('created_at', 'dec')->take(10)->get();
+		foreach ($poems as $poem) {
+			$allPoemIds[] = $poem->id;
+		}
+		$lastViewedPoemIds = Session::get('last_viewed_latest_poem_ids', []);
+		if ( sizeof($lastViewedPoemIds) > 9 ) {
+			Session::set('last_viewed_latest_poem_ids', []);
+			$lastViewedPoemIds = [];
+		}
+		$randomPoemIdsPool = array_diff($allPoemIds, $lastViewedPoemIds);
+		$randomPoemPoolIndex = array_rand($randomPoemIdsPool);
+		$randomPoemId = $randomPoemIdsPool[$randomPoemPoolIndex];
+		array_unshift($lastViewedPoemIds, $randomPoemId);
+		if ( empty($lastViewedPoemIds) ) {
+			$lastViewedPoemIds = array($randomPoemId);
+		}
+		Session::set('last_viewed_latest_poem_ids', $lastViewedPoemIds);
+
+		$randomPoem = Poem::find($randomPoemId);
+		$randomPoem['text'] = preg_replace('/\r\n|\r|\n/', '<br>', $randomPoem['text']);
+		return $randomPoem;
+	}
+
 	public static function getPoemCount()
 	{
 		return Poem::count();

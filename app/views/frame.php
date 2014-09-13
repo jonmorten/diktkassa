@@ -15,8 +15,8 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="vendor/normalize.css/normalize.css">
-		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="/vendor/normalize.css/normalize.css">
+		<link rel="stylesheet" href="/css/app.css">
 	</head>
 	<body>
 		<header class="main row">
@@ -54,7 +54,7 @@
 			</div>
 		</footer>
 
-		<script src="js/app.js"></script>
+		<script src="/js/app.js"></script>
 
 		<?php if (isset($_ENV['ga_tracking_id'])) { ?>
 			<script>
