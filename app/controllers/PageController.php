@@ -16,7 +16,7 @@ class PageController extends BaseController
 	public function pageRandomPoem($mode = 'alle')
 	{
 		switch ($mode) {
-			case 'nyeste':
+			case 'siste':
 				$poem = PoemController::getRandomPoemLatest();
 				break;
 

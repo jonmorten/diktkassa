@@ -3,8 +3,8 @@
         <div class="row">
             <div class="form-action columns small-6">
                 <div class="split-button-wrapper">
-                    <?php if ($mode === 'nyeste') { ?>
-                        <a class="button" href="{{ URL::route('randomPoem') }}/nyeste">Les et til</a>
+                    <?php if ($mode === 'siste') { ?>
+                        <a class="button" href="{{ URL::route('randomPoem') }}/siste">Les et til</a>
                     <?php } else if ($mode === 'beste') { ?>
                         <a class="button" href="{{ URL::route('randomPoem') }}/beste">Les et til</a>
                     <?php } else { ?>
@@ -14,7 +14,7 @@
                         class="split-button-icon"
                         data-dropdown="random-poem-mode-selector"
                     >
-                        <?php if ($mode === 'nyeste') { ?>
+                        <?php if ($mode === 'siste') { ?>
                             <i class="fa fa-calendar"></i>
                         <?php } else if ($mode === 'beste') { ?>
                             <i class="fa fa-star"></i>
@@ -37,8 +37,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ URL::route('randomPoem') }}/nyeste">
-                            <?php if ($mode === 'nyeste') { ?>
+                        <a href="{{ URL::route('randomPoem') }}/siste">
+                            <?php if ($mode === 'siste') { ?>
                                 <i class="fa fa-caret-right"></i>
                             <?php } ?>
                             Siste
