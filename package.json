@@ -21,7 +21,8 @@
   },
   "browser": {
     "Modernizr": "./public/vendor/modernizr/modernizr.js",
-    "jquery": "./public/vendor/jquery/dist/jquery.min.js"
+    "jquery": "./public/vendor/jquery/dist/jquery.min.js",
+    "fingerprint": "./public/vendor/fingerprint/fingerprint.js"
   },
   "browserify-shim": {
     "Modernizr": {

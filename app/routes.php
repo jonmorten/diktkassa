@@ -25,3 +25,12 @@ Route::get('/les',[
     'as' => 'randomPoem',
     'uses' => 'PageController@pageRandomPoem',
 ]);
+
+Route::get('/json/getPoemRateInfo', [
+	'uses' => 'PoemController@jsonGetPoemRateInfo',
+]);
+
+Route::post('/json/postPoemRate', [
+	'as' => 'jsonPostPoemRate',
+	'uses' => 'PoemController@jsonPostPoemRate',
+]);

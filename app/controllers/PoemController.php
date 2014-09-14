@@ -69,6 +69,9 @@ class PoemController extends BaseController
 		Session::set('last_viewed_poem_ids', $lastViewedPoemIds);
 
 		$randomPoem = Poem::find($randomPoemId);
+		$poemRating = $randomPoem['rating'];
+		$randomPoem['rating_markup_class_value'] = str_replace('.', '-', round($poemRating * 2) / 2);
+		$randomPoem['rating_markup_display_value'] = str_replace('.', ',', round($poemRating * 2) / 2);
 		$randomPoem['text'] = preg_replace('/\r\n|\r|\n/', '<br>', $randomPoem['text']);
 		return $randomPoem;
 	}
@@ -76,6 +79,119 @@ class PoemController extends BaseController
 	public static function getPoemCount()
 	{
 		return Poem::count();
+	}
+
+	/**
+	 * @param  numeric $poemId
+	 * @param  string $fingerprint
+	 * @return object
+	 */
+	public static function jsonGetPoemRateInfo($poemId = '', $fingerprint = '')
+	{
+		$poemId = Input::get('id', $poemId);
+		$fingerprint = Input::get('fingerprint', $fingerprint);
+
+		$url = '';
+		$fingerprintIsUsed = false;
+		$rating = null;
+		if (ctype_digit($poemId) && trim($fingerprint) !== '') {
+			$url = URL::route('jsonPostPoemRate', [], false);
+			$fingerprintIsUsed = self::isFingerprintUsed($poemId, $fingerprint);
+			if ($fingerprintIsUsed) {
+				$rating = PoemRating
+					::where('fingerprint', '=', $fingerprint)
+					->where('poem_id', '=', $poemId)
+					->first()
+					->rating;
+			}
+		}
+		return Response::json([
+			'url' => $url,
+			'has_rated' => $fingerprintIsUsed,
+			'rating' => $rating,
+		]);
+	}
+
+	/**
+	 * @param  numeric $poemId
+	 * @param  string $fingerprint
+	 * @param  numeric $rating
+	 * @return object
+	 */
+	public static function jsonPostPoemRate(
+		$poemId = '',
+		$fingerprint = '',
+		$rating = ''
+	)
+	{
+		$poemId = Input::get('id', $poemId);
+		$fingerprint = Input::get('fingerprint', $fingerprint);
+		$rating = Input::get('rating', $rating);
+
+		$error = [];
+		$success = [];
+
+		if (
+			ctype_digit($poemId)
+			&& trim($fingerprint) !== ''
+			&& is_numeric($rating)
+		) {
+			if (self::isFingerprintUsed($poemId, $fingerprint)) {
+				$success[] = 'Poem rating was updated.';
+				$poemRating = PoemRating
+					::where('fingerprint', '=', $fingerprint)
+					->where('poem_id', '=', $poemId)
+					->first();
+			} else {
+				$success[] = 'Poem was rated.';
+				$poemRating = new PoemRating();
+				$poemRating->fingerprint = $fingerprint;
+				$poemRating->poem_id = $poemId;
+			}
+			$poemRating->rating = $rating;
+			$poemRating->save();
+			$rating = self::updatePoemRating($poemId);
+			$rating = str_replace('.', ',', floor($rating * 2) / 2);
+		} else {
+			$error[] = 'Invalid input.';
+		}
+
+		return Response::json([
+			'error' => $error,
+			'success' => $success,
+			'rating' => $rating,
+		]);
+	}
+
+	/**
+	 * @param  numeric $poemId
+	 * @param  string $fingerprint
+	 * @return boolean
+	 */
+	protected static function isFingerprintUsed($poemId, $fingerprint)
+	{
+		$poemMatch = PoemRating
+			::where('fingerprint', '=', $fingerprint)
+			->where('poem_id', '=', $poemId)
+			->count();
+		return 0 !== $poemMatch;
+	}
+
+	/**
+	 * @param  integer $poemId
+	 * @return float
+	 */
+	protected static function updatePoemRating($poemId)
+	{
+		$rating = PoemRating
+			::where('poem_id', '=', $poemId)
+			->avg('rating');
+		$poem = Poem
+			::where('id', '=', $poemId)
+			->first();
+		$poem->rating = $rating;
+		$poem->save();
+		return $rating;
 	}
 
 }

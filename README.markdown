@@ -23,7 +23,7 @@ git clone https://github.com/jjmmkk/diktkassa.git && cd diktkassa && composer in
 
 Currently only MySQL is supported.
 
-#### Table
+#### Poem table
 
 Create a table to store the poems.
 
@@ -33,8 +33,26 @@ CREATE TABLE IF NOT EXISTS poems (
 	PRIMARY KEY (id),
 
 	created_at VARCHAR(255) NOT NULL,
+	rating DECIMAL(7,4) NOT NULL DEFAULT 0.0000,
 	text MEDIUMTEXT NOT NULL,
 	title VARCHAR(255) NOT NULL,
+	updated_at VARCHAR(255) NOT NULL
+) ENGINE=InnoDB;
+```
+
+#### Poem ratings table
+
+Create a table to store the ratings.
+
+```sql
+CREATE TABLE IF NOT EXISTS poem_ratings (
+	id INTEGER(32) NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (id),
+
+	created_at VARCHAR(255) NOT NULL,
+	fingerprint VARCHAR(255) NOT NULL,
+	poem_id INTEGER(32) NOT NULL,
+	rating INTEGER(1) NOT NULL,
 	updated_at VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB;
 ```

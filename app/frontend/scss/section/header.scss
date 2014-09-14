@@ -100,6 +100,7 @@ textarea {
     display: block;
     margin-bottom: 5px;
 }
+
 .poem {
     background: none repeat scroll 0 0 white;
     border-radius: 3px;
@@ -118,7 +119,107 @@ textarea {
         line-height: 1.5;
         font-size: 16px;
     }
+
+    .poem-rating {
+        color: #f39c12;
+        margin-top: 30px;
+
+        &:after {
+            content: attr(data-poem-rating);
+        }
+
+        &:hover,
+        &.poem-is-rated {
+            color: #e67e22;
+        }
+    }
+
+    @mixin star-icons($amount) {
+        & {
+            .icon {
+                display: none;
+            }
+            .icon-empty {
+                display: inline-block;
+            }
+
+            @if $amount > 0 {
+                $floored_amount: floor($amount);
+                @for $i from 1 through $floored_amount {
+                    .star-#{$i} {
+                        .icon {
+                            display: none;
+                        }
+                        .icon-full {
+                            display: inline-block;
+                        }
+                    }
+                }
+                @if $floored_amount != $amount {
+                    .star-#{ceil($amount)} {
+                        .icon {
+                            display: none;
+                        }
+                        .icon-half {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+        &:hover {
+            .icon {
+                display: none !important;
+            }
+            .icon-full {
+                display: inline-block !important;
+            }
+        }
+        .star-set:hover ~ .star-set {
+            .icon {
+                display: none !important;
+            }
+            .icon-empty {
+                display: inline-block !important;
+            }
+        }
+    }
+
+    .poem-rating-0 {
+        @include star-icons(0);
+    }
+    .poem-rating-0-5 {
+        @include star-icons(0.5);
+    }
+    .poem-rating-1 {
+       @include star-icons(1);
+    }
+    .poem-rating-1-5 {
+        @include star-icons(1.5);
+    }
+    .poem-rating-2 {
+        @include star-icons(2);
+    }
+    .poem-rating-2-5 {
+        @include star-icons(2.5);
+    }
+    .poem-rating-3 {
+        @include star-icons(3);
+    }
+    .poem-rating-3-5 {
+        @include star-icons(3.5);
+    }
+    .poem-rating-4 {
+        @include star-icons(4);
+    }
+    .poem-rating-4-5 {
+        @include star-icons(4.5);
+    }
+    .poem-rating-5 {
+        @include star-icons(5);
+    }
 }
+
 @media #{$small-only} {
     header.main {
         margin-bottom: 0;
