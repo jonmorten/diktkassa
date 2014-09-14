@@ -72,11 +72,12 @@ textarea {
 }
 .button {
     background: #e67e22;
-    color: #fff;
     border: 1px solid transparent;
-    text-align: center;
+    color: #fff;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
+    margin: 0;
+    text-align: center;
 }
 .button:focus {
     border: 1px solid #fff;
@@ -119,49 +120,66 @@ textarea {
         font-size: 16px;
     }
 }
-.f-dropdown.open {
-    left: 15px!important;
-    right: 15px!important;
-    width: auto;
-    top: 43px!important;
+.f-dropdown {
+    border: 1px solid #e67e22;
     padding: 0;
+    right: 15px !important;
+    top: 100% !important;
+    width: auto;
+
+    &.open {
+        left: 15px !important;
+    }
+    &:before {
+        left: auto !important;
+        right: 17px !important;
+    }
+    &:after {
+        border: 0 none !important;
+    }
+
+    li {
+        color: #f39c12 !important;
+
+        &:focus,
+        &:hover {
+            background: none #e67e22;
+            color: #fff !important;
+        }
+    }
+
+    a {
+        color: inherit !important;
+    }
 }
-.f-dropdown.open:before,
-.f-dropdown.open:after {
-    right: 17px!important;
-    left: auto!important;
-}
-.flex-button {
-    display: flex;
+.split-button-wrapper {
+    display: table;
+    width: 100%;
 }
 .button.split {
-    flex-grow: 1;
-    padding: 8px 10px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+    display: table-cell;
+    padding: 8px 10px;
 }
 .split-button-icon {
     background: #e67e22;
-    height: 42px;
-    width: 50px;
-    min-width: 50px;
     border-bottom-right-radius: 1px;
-    border-top-right-radius: 1px;
-    position: relative;
     border-left: 1px solid #ffcca0;
-    transition: background-color 300ms ease-out;
+    border-top-right-radius: 1px;
     cursor: pointer;
+    display: table-cell;
+    min-width: 50px;
+    transition: background-color 300ms ease-out;
+    width: 50px;
 }
-.split-button-icon:after {
-    content: "\f039";
-    font-family: "FontAwesome";
-    top: 50%;
-    margin-top: -12px;
-    margin-left: -9px;
-    position: absolute;
-}
-button:hover, button:focus, .button:hover, .button:focus, .split-button-icon:hover, .split-button-icon:focus {
-    background-color: #CE7323;
+button,
+.button,
+.split-button-icon {
+    &:hover,
+    &:focus {
+        background-color: #ce7323;
+    }
 }
 @media #{$small-only} {
     header.main {
