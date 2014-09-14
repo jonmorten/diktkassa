@@ -75,22 +75,14 @@ class PoemController extends BaseController
 
 	public static function getLatestPoem()
 	{
-		$poems = Poem::orderBy('created_at', 'dec')->take(10)->get();
-		foreach ($poems as $poem) {
-			$allPoemIds[] = $poem->id;
-		}
-		$lastViewedPoemIds = Session::get('last_viewed_latest_poem_ids', []);
-		if ( sizeof($lastViewedPoemIds) > 9 ) {
-			Session::set('last_viewed_latest_poem_ids', []);
-			$lastViewedPoemIds = [];
-		}
-		$randomPoemIdsPool = array_diff($allPoemIds, $lastViewedPoemIds);
-		$randomPoemPoolIndex = array_rand($randomPoemIdsPool);
+		$poemTableName = with(new Poem)->getTable();
+		$poemPoemIds = DB::table($poemTableName)->orderBy('created_at', 'desc')->take(10)->lists('id');
+		$viewedPoemTrailLength = min(20, max(0, count($poemPoemIds) - 1));
+		$lastViewedPoemIds = array_slice(Session::get('last_viewed_latest_poem_ids', []), 0, $viewedPoemTrailLength);
+		$randomPoemIdsPool = array_values(array_diff($poemPoemIds, $lastViewedPoemIds));
+		$randomPoemPoolIndex = mt_rand(0,max(0, count($randomPoemIdsPool) - 1));
 		$randomPoemId = $randomPoemIdsPool[$randomPoemPoolIndex];
 		array_unshift($lastViewedPoemIds, $randomPoemId);
-		if ( empty($lastViewedPoemIds) ) {
-			$lastViewedPoemIds = array($randomPoemId);
-		}
 		Session::set('last_viewed_latest_poem_ids', $lastViewedPoemIds);
 
 		$randomPoem = Poem::find($randomPoemId);
