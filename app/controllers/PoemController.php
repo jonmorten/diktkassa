@@ -104,6 +104,17 @@ class PoemController extends BaseController
 		return self::getRandomPoem('latest', $poemIds);
 	}
 
+	public static function getRandomPoemHighestRated()
+	{
+		$poemTableName = with(new Poem)->getTable();
+		$poemIds = DB
+			::table($poemTableName)
+			->orderBy('rating', 'desc')
+			->take(10)
+			->lists('id');
+		return self::getRandomPoem('highest_rated', $poemIds);
+	}
+
 	public static function getPoemCount()
 	{
 		return Poem::count();

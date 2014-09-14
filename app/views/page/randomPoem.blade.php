@@ -5,6 +5,8 @@
                 <div class="split-button-wrapper">
                     <?php if ($mode === 'nyeste') { ?>
                         <a class="button" href="{{ URL::route('randomPoem') }}/nyeste">Les et til</a>
+                    <?php } else if ($mode === 'beste') { ?>
+                        <a class="button" href="{{ URL::route('randomPoem') }}/beste">Les et til</a>
                     <?php } else { ?>
                         <a class="button" href="{{ URL::route('randomPoem') }}">Les et til</a>
                     <?php } ?>
@@ -14,6 +16,8 @@
                     >
                         <?php if ($mode === 'nyeste') { ?>
                             <i class="fa fa-calendar"></i>
+                        <?php } else if ($mode === 'beste') { ?>
+                            <i class="fa fa-star"></i>
                         <?php } else { ?>
                             <i class="fa fa-bars"></i>
                         <?php } ?>
@@ -38,6 +42,14 @@
                                 <i class="fa fa-caret-right"></i>
                             <?php } ?>
                             Siste
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ URL::route('randomPoem') }}/beste">
+                            <?php if ($mode === 'beste') { ?>
+                                <i class="fa fa-caret-right"></i>
+                            <?php } ?>
+                            Beste
                         </a>
                     </li>
                 </ul>

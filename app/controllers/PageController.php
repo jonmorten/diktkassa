@@ -20,6 +20,10 @@ class PageController extends BaseController
 				$poem = PoemController::getRandomPoemLatest();
 				break;
 
+			case 'beste':
+				$poem = PoemController::getRandomPoemHighestRated();
+				break;
+
 			default:
 				$poem = PoemController::getRandomPoemAll();
 				break;
