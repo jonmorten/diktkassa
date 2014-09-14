@@ -54,26 +54,54 @@ class PoemController extends BaseController
 		return Redirect::route('frontpage')->with('message', 'Oi - hva har hendt? <br> Jo: ditt dikt er sendt!');
 	}
 
-	public static function getRandomPoem()
+	protected static function getViewFriendlyPoem($poemId)
+	{
+		$poem = Poem::find($poemId);
+		$poemRating = $poem['rating'];
+		$poem['rating_markup_class_value'] = str_replace('.', '-', round($poemRating * 2) / 2);
+		$poem['rating_markup_display_value'] = (
+			$poemRating > 0
+			? str_replace('.', ',', round($poemRating * 2) / 2)
+			: ''
+		);
+		$poem['text'] = preg_replace('/\r\n|\r|\n/', '<br>', $poem['text']);
+		return $poem;
+	}
+
+	protected static function getRandomPoem($randomMode, array $poemIds)
 	{
 		//	To avoid getting the same poems repeatedly, store the last viewed
 		//	poems in session and exclude them from the random pool.
-		$poemTableName = with(new Poem)->getTable();
-		$allPoemIds = DB::table($poemTableName)->lists('id');
-		$viewedPoemTrailLength = min(20, max(0, count($allPoemIds) - 1));
-		$lastViewedPoemIds = array_slice(Session::get('last_viewed_poem_ids', []), 0, $viewedPoemTrailLength);
-		$randomPoemIdsPool = array_values(array_diff($allPoemIds, $lastViewedPoemIds));
+		$sessionPoemTrailKey = 'last_viewed_poem_ids_' . $randomMode;
+		$viewedPoemTrailLength = min(20, max(0, count($poemIds) - 1));
+		$lastViewedPoemIds = array_slice(Session::get($sessionPoemTrailKey, []), 0, $viewedPoemTrailLength);
+		$randomPoemIdsPool = array_values(array_diff($poemIds, $lastViewedPoemIds));
 		$randomPoemPoolIndex = mt_rand(0,max(0, count($randomPoemIdsPool) - 1));
 		$randomPoemId = $randomPoemIdsPool[$randomPoemPoolIndex];
 		array_unshift($lastViewedPoemIds, $randomPoemId);
-		Session::set('last_viewed_poem_ids', $lastViewedPoemIds);
+		Session::set($sessionPoemTrailKey, $lastViewedPoemIds);
 
-		$randomPoem = Poem::find($randomPoemId);
-		$poemRating = $randomPoem['rating'];
-		$randomPoem['rating_markup_class_value'] = str_replace('.', '-', round($poemRating * 2) / 2);
-		$randomPoem['rating_markup_display_value'] = str_replace('.', ',', round($poemRating * 2) / 2);
-		$randomPoem['text'] = preg_replace('/\r\n|\r|\n/', '<br>', $randomPoem['text']);
-		return $randomPoem;
+		return self::getViewFriendlyPoem($randomPoemId);
+	}
+
+	public static function getRandomPoemAll()
+	{
+		$poemTableName = with(new Poem)->getTable();
+		$allPoemIds = DB
+			::table($poemTableName)
+			->lists('id');
+		return self::getRandomPoem('all', $allPoemIds);
+	}
+
+	public static function getRandomPoemLatest()
+	{
+		$poemTableName = with(new Poem)->getTable();
+		$poemIds = DB
+			::table($poemTableName)
+			->orderBy('created_at', 'desc')
+			->take(10)
+			->lists('id');
+		return self::getRandomPoem('latest', $poemIds);
 	}
 
 	public static function getPoemCount()

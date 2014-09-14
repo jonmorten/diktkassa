@@ -72,11 +72,12 @@ textarea {
 }
 .button {
     background: #e67e22;
-    color: #fff;
     border: 1px solid transparent;
-    text-align: center;
+    color: #fff;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
+    margin: 0;
+    text-align: center;
 }
 .button:focus {
     border: 1px solid #fff;
@@ -219,7 +220,67 @@ textarea {
         @include star-icons(5);
     }
 }
+.f-dropdown {
+    border: 1px solid #e67e22;
+    padding: 0;
+    right: 15px !important;
+    top: 100% !important;
+    width: auto;
 
+    &.open {
+        left: 15px !important;
+    }
+    &:before {
+        left: auto !important;
+        right: 17px !important;
+    }
+    &:after {
+        border: 0 none !important;
+    }
+
+    li {
+        color: #f39c12 !important;
+
+        &:focus,
+        &:hover {
+            background: none #e67e22;
+            color: #fff !important;
+        }
+    }
+
+    a {
+        color: inherit !important;
+    }
+}
+.split-button-wrapper {
+    display: table;
+    width: 100%;
+}
+.button.split {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    display: table-cell;
+    padding: 8px 10px;
+}
+.split-button-icon {
+    background: #e67e22;
+    border-bottom-right-radius: 1px;
+    border-left: 1px solid #ffcca0;
+    border-top-right-radius: 1px;
+    cursor: pointer;
+    display: table-cell;
+    min-width: 50px;
+    transition: background-color 300ms ease-out;
+    width: 50px;
+}
+button,
+.button,
+.split-button-icon {
+    &:hover,
+    &:focus {
+        background-color: #ce7323;
+    }
+}
 @media #{$small-only} {
     header.main {
         margin-bottom: 0;

@@ -13,11 +13,23 @@ class PageController extends BaseController
 		return View::make('frame', array('poemCount' => PoemController::getPoemCount()))->nest('content', 'page/frontpage', $data);
 	}
 
-	public function pageRandomPoem()
+	public function pageRandomPoem($mode = 'alle')
 	{
+		switch ($mode) {
+			case 'nyeste':
+				$poem = PoemController::getRandomPoemLatest();
+				break;
+
+			default:
+				$poem = PoemController::getRandomPoemAll();
+				break;
+		}
+
 		$data = [
-			'poem' => PoemController::getRandomPoem(),
+			'poem' => $poem,
+			'mode' => $mode,
 		];
+
 		return View::make('frame', array('poemCount' => PoemController::getPoemCount()))->nest('content', 'page/randomPoem', $data);
 	}
 
