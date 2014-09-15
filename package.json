@@ -21,13 +21,18 @@
   },
   "browser": {
     "Modernizr": "./public/vendor/modernizr/modernizr.js",
-    "jquery": "./public/vendor/jquery/dist/jquery.min.js"
+    "jquery": "./public/vendor/jquery/dist/jquery.min.js",
+    "fingerprint": "./public/vendor/fingerprint/fingerprint.js",
+    "foundation": "./public/vendor/foundation/js/foundation.js"
   },
   "browserify-shim": {
     "Modernizr": {
       "exports": "Modernizr"
     },
     "jquery": {
+      "exports": "jQuery"
+    },
+    "foundation": {
       "exports": "jQuery"
     }
   }

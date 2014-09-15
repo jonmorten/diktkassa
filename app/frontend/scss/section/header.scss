@@ -72,11 +72,12 @@ textarea {
 }
 .button {
     background: #e67e22;
-    color: #fff;
     border: 1px solid transparent;
-    text-align: center;
+    color: #fff;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
+    margin: 0;
+    text-align: center;
 }
 .button:focus {
     border: 1px solid #fff;
@@ -100,6 +101,7 @@ textarea {
     display: block;
     margin-bottom: 5px;
 }
+
 .poem {
     background: none repeat scroll 0 0 white;
     border-radius: 3px;
@@ -117,6 +119,166 @@ textarea {
     .poem-text {
         line-height: 1.5;
         font-size: 16px;
+    }
+
+    .poem-rating {
+        color: #f39c12;
+        margin-top: 30px;
+
+        &:after {
+            content: attr(data-poem-rating);
+        }
+
+        &:hover,
+        &.poem-is-rated {
+            color: #e67e22;
+        }
+    }
+
+    @mixin star-icons($amount) {
+        & {
+            .icon {
+                display: none;
+            }
+            .icon-empty {
+                display: inline-block;
+            }
+
+            @if $amount > 0 {
+                $floored_amount: floor($amount);
+                @for $i from 1 through $floored_amount {
+                    .star-#{$i} {
+                        .icon {
+                            display: none;
+                        }
+                        .icon-full {
+                            display: inline-block;
+                        }
+                    }
+                }
+                @if $floored_amount != $amount {
+                    .star-#{ceil($amount)} {
+                        .icon {
+                            display: none;
+                        }
+                        .icon-half {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+        &:hover {
+            .icon {
+                display: none !important;
+            }
+            .icon-full {
+                display: inline-block !important;
+            }
+        }
+        .star-set:hover ~ .star-set {
+            .icon {
+                display: none !important;
+            }
+            .icon-empty {
+                display: inline-block !important;
+            }
+        }
+    }
+
+    .poem-rating-0 {
+        @include star-icons(0);
+    }
+    .poem-rating-0-5 {
+        @include star-icons(0.5);
+    }
+    .poem-rating-1 {
+       @include star-icons(1);
+    }
+    .poem-rating-1-5 {
+        @include star-icons(1.5);
+    }
+    .poem-rating-2 {
+        @include star-icons(2);
+    }
+    .poem-rating-2-5 {
+        @include star-icons(2.5);
+    }
+    .poem-rating-3 {
+        @include star-icons(3);
+    }
+    .poem-rating-3-5 {
+        @include star-icons(3.5);
+    }
+    .poem-rating-4 {
+        @include star-icons(4);
+    }
+    .poem-rating-4-5 {
+        @include star-icons(4.5);
+    }
+    .poem-rating-5 {
+        @include star-icons(5);
+    }
+}
+.f-dropdown {
+    border: 1px solid #e67e22;
+    padding: 0;
+    right: 15px !important;
+    top: 100% !important;
+    width: auto;
+
+    &.open {
+        left: 15px !important;
+    }
+    &:before {
+        left: auto !important;
+        right: 17px !important;
+    }
+    &:after {
+        border: 0 none !important;
+    }
+
+    li {
+        color: #f39c12 !important;
+
+        &:focus,
+        &:hover {
+            background: none #e67e22;
+            color: #fff !important;
+        }
+    }
+
+    a {
+        color: inherit !important;
+    }
+}
+.split-button-wrapper {
+    display: table;
+    width: 100%;
+}
+.button.split {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    display: table-cell;
+    padding: 8px 10px;
+}
+.split-button-icon {
+    background: #e67e22;
+    border-bottom-right-radius: 1px;
+    border-left: 1px solid #ffcca0;
+    border-top-right-radius: 1px;
+    cursor: pointer;
+    display: table-cell;
+    min-width: 50px;
+    transition: background-color 300ms ease-out;
+    width: 50px;
+}
+button,
+.button,
+.split-button-icon {
+    &:hover,
+    &:focus {
+        background-color: #ce7323;
     }
 }
 @media #{$small-only} {
