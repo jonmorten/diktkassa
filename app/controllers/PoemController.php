@@ -64,7 +64,8 @@ class PoemController extends BaseController
 			? str_replace('.', ',', round($poemRating * 2) / 2)
 			: ''
 		);
-		$poem['text'] = preg_replace('/\r\n|\r|\n/', '<br>', $poem['text']);
+		$poem['text'] = preg_replace('/^(.+)$/m', '<span class="poem-line">$1<br></span>', $poem['text']);
+
 		return $poem;
 	}
 
