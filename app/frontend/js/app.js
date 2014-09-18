@@ -90,7 +90,7 @@ $(document).ready(function( $ ) {
 			}
 		});
 
-		$ratePoemButton.on('click.ratePoemButton', rateEventHandler);
+		$ratePoemButton.on('click.ratePoemButton touchstart.ratePoemButton', rateEventHandler);
 	})();
 
 });
