@@ -99,7 +99,7 @@ class PoemController extends BaseController
 		$poemIds = DB
 			::table($poemTableName)
 			->orderBy('created_at', 'desc')
-			->take(10)
+			->take(20)
 			->lists('id');
 		return self::getRandomPoem('latest', $poemIds);
 	}
@@ -110,7 +110,7 @@ class PoemController extends BaseController
 		$poemIds = DB
 			::table($poemTableName)
 			->orderBy('rating', 'desc')
-			->take(10)
+			->take(20)
 			->lists('id');
 		return self::getRandomPoem('highest_rated', $poemIds);
 	}
