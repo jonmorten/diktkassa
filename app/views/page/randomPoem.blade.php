@@ -67,7 +67,7 @@
                     <?php echo $poem['text']; ?>
                 </div>
             </div>
-            <div class="poem-rating">
+            <div class="poem-rating-wrapper">
                 <a
                     href="#"
                     data-rate-poem="<?php echo $poem['id']; ?>"

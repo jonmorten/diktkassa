@@ -126,15 +126,19 @@ textarea {
         margin: 10px 0;
     }
 
+
+    .poem-rating-wrapper {
+        margin-top: 25px;
+    }
+
     .poem-rating {
-        color: #f39c12;
-        margin-top: 30px;
+        color: #F2CB8D;
 
         &:after {
+            color: #f39c12;
             content: attr(data-poem-rating);
         }
 
-        &:hover,
         &.poem-is-rated {
             color: #e67e22;
         }
@@ -147,6 +151,7 @@ textarea {
             }
             .icon-empty {
                 display: inline-block;
+                color: #e6ba75;
             }
 
             @if $amount > 0 {
@@ -175,18 +180,19 @@ textarea {
         }
         &:hover {
             .icon {
-                display: none !important;
+                display: none;
             }
             .icon-full {
-                display: inline-block !important;
+                color: #e67e22;
+                display: inline-block;
             }
         }
         .star-set:hover ~ .star-set {
             .icon {
-                display: none !important;
+                display: none;
             }
             .icon-empty {
-                display: inline-block !important;
+                display: inline-block;
             }
         }
     }
@@ -225,6 +231,7 @@ textarea {
         @include star-icons(5);
     }
 }
+
 .f-dropdown {
     border: 1px solid #e67e22;
     padding: 0;
