@@ -49,7 +49,11 @@
 					<br><br>
 					Ved å legge inn et dikt bekrefter du at du har rettighetene til dette diktet,<br>
 					at det ikke er publisert før, <br>
-					og at vi har lov til å publisere diktet på denne nettsiden og i vår kommende diktbok.<br><br><br>
+					og at vi har lov til å publisere diktet på denne nettsiden og i vår kommende diktbok.
+					<br><br>
+					<a class="social-icon" href="https://www.facebook.com/diktkassa"><i class="fa fa-facebook-square"></i> Facebook</a>
+					<a class="social-icon" href="https://github.com/jjmmkk/diktkassa"><i class="fa fa-github-square"></i> Github</a>
+					<br>
 				</div>
 			</div>
 		</footer>
