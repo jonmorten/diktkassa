@@ -17,6 +17,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/vendor/normalize.css/normalize.css">
 		<link rel="stylesheet" href="/css/app.css">
+		<link href="<?php echo URL::asset('images/apple-touch-icon-180.png'); ?>" rel="apple-touch-icon-precomposed"/>
 	</head>
 	<body>
 		<header class="main row">
