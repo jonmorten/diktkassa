@@ -13,6 +13,7 @@ class PageController extends BaseController
 		$frameData = [
 			'poemCount' => PoemController::getPoemCount(),
 			'showBookBanner' => true,
+			'showAboutUsText' => true,
 		];
 		return View::make('frame', $frameData)->nest('content', 'page/frontpage', $contentData);
 	}
@@ -40,6 +41,7 @@ class PageController extends BaseController
 		$frameData = [
 			'poemCount' => PoemController::getPoemCount(),
 			'showBookBanner' => true,
+			'showAboutUsText' => true,
 		];
 
 		return View::make('frame', $frameData)->nest('content', 'page/randomPoem', $contentData);

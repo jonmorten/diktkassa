@@ -104,6 +104,7 @@ return [
 	'mandril_api_key' => 'ABCDEFGHIJKLMNOPQRSTUV',
 	'meta_description' => 'A digital baby hatch for poems.',
 	'poem_email' => 'your@email.com',
+	'order_email' => 'your@email.com',
 ];
 ```
 
