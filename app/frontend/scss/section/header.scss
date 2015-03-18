@@ -4,6 +4,7 @@ body {
     font-family: 'Helvetica', sans-serif;
     font-size: 16px;
     text-align: center;
+    overflow-x: hidden;
 }
 header.main {
     margin-bottom: 30px;
@@ -291,6 +292,56 @@ button,
         background-color: #ce7323;
     }
 }
+
+@media #{$medium-up} {
+    .book-banner {
+        color: #fff;
+        height: 35px;
+        letter-spacing: 0.05em;
+        line-height: 25px;
+        position: absolute;
+        right: -80px;
+        text-transform: uppercase;
+        top: 55px;
+        transform: rotate(45deg);
+        width: 300px;
+    }
+}
+
+@media #{$small-only} {
+    body {
+        padding-top: 50px;
+    }
+    .book-banner {
+        position: absolute;
+        margin-bottom: 100px;
+        top: 0;
+        height: 40px;
+        left: 0;
+        right: 0;
+        width: 100%;
+
+        a {
+            line-height: 33px;
+        }
+    }
+}
+
+.book-banner {
+    a {
+        background: none repeat scroll 0 0 #e67e22;
+        display: block;
+        height: inherit;
+        padding-top: 6px;
+        text-align: center;
+        transition: background-color 300ms ease-out;
+    }
+    a:focus,
+    a:hover {
+        background-color: #ce7323;
+    }
+}
+
 @media #{$small-only} {
     header.main {
         margin-bottom: 0;

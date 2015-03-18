@@ -5,12 +5,16 @@ class PageController extends BaseController
 
 	public function pageFrontpage()
 	{
-		$data = [
+		$contentData = [
 			'message' => Session::get('message', false),
 			'poemTitle' => Session::get('poemTitle', false),
 			'poemText' => Session::get('poemText', false),
 		];
-		return View::make('frame', array('poemCount' => PoemController::getPoemCount()))->nest('content', 'page/frontpage', $data);
+		$frameData = [
+			'poemCount' => PoemController::getPoemCount(),
+			'showBookBanner' => true,
+		];
+		return View::make('frame', $frameData)->nest('content', 'page/frontpage', $contentData);
 	}
 
 	public function pageRandomPoem($mode = 'alle')
@@ -29,12 +33,29 @@ class PageController extends BaseController
 				break;
 		}
 
-		$data = [
+		$contentData = [
 			'poem' => $poem,
 			'mode' => $mode,
 		];
+		$frameData = [
+			'poemCount' => PoemController::getPoemCount(),
+			'showBookBanner' => true,
+		];
 
-		return View::make('frame', array('poemCount' => PoemController::getPoemCount()))->nest('content', 'page/randomPoem', $data);
+		return View::make('frame', $frameData)->nest('content', 'page/randomPoem', $contentData);
+	}
+
+	public function pageBookForm()
+	{
+		$contentData = [
+			'message' => Session::get('message', false),
+			'poemTitle' => Session::get('poemTitle', false),
+			'poemText' => Session::get('poemText', false),
+		];
+		$frameData = [
+			'poemCount' => PoemController::getPoemCount(),
+		];
+		return View::make('frame', $frameData)->nest('content', 'page/bookForm', $contentData);
 	}
 
 }

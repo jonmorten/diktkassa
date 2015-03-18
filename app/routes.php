@@ -34,3 +34,13 @@ Route::post('/json/postPoemRate', [
 	'as' => 'jsonPostPoemRate',
 	'uses' => 'PoemController@jsonPostPoemRate',
 ]);
+
+Route::get('/bestill',[
+	'as' => 'bookForm',
+	'uses' => 'PageController@pageBookForm',
+]);
+
+Route::post('/bestill',[
+	'as' => 'bookFormSubmit',
+	'uses' => 'BookFormController@formSubmit',
+]);

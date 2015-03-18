@@ -32,6 +32,12 @@
 			</div>
 		</header>
 
+		<?php if (isset($showBookBanner) && $showBookBanner) { ?>
+			<div class="book-banner">
+				<a href="<?php echo URL::route('bookForm') ?>">Bestill boka!</a>
+			</div>
+		<?php } ?>
+
 		<div class="content-main row">
 			<?php echo $content; ?>
 		</div>
