@@ -2,6 +2,8 @@
 //	`rem-calc` takes a pixel value and turns it into rems
 //	http://foundation.zurb.com/docs/components/grid.html
 $row-width: rem-calc(1024);
+$column-gutter: rem-calc(15);
+
 
 //	Font Awesome
 //	Font path is relative to compiled CSS
