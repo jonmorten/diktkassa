@@ -1,11 +1,17 @@
 <?php
 
-echo 'Tid: '. $time;
-echo '<br>';
-echo 'Navn: '. $name;
-echo '<br>';
-echo 'Adresse: '. $address;
-echo '<br>';
-echo 'Poststed: '. $postal_area;
-echo '<br>';
-echo 'Postnummer: '. $zip;
+foreach ([
+	'time' => 'Tid',
+	'name' => 'Navn',
+	'email' => 'E-post',
+	'phone' => 'Telefon',
+	'address' => 'Adresse',
+	'postal_area' => 'Poststed',
+	'zip' => 'Postnummer',
+] as $variable => $label) {
+	echo sprintf('%s: %s<br>', $label, $$variable);
+}
+
+if (! empty($other)) {
+	echo 'Annet:<br>' . $other . '<br>';
+}

@@ -1,4 +1,4 @@
-<?php if ($message) { ?>
+<?php if (! empty($message)) { ?>
     <div class="columns small-12 small-centered medium-7 medium-centered large-5 large-centered">
         <p class="feedback"><?php echo $message ?></p>
     </div>
@@ -7,29 +7,35 @@
 {{
     Form::open([
         'class' => 'columns small-12 small-centered medium-7 medium-centered large-5 large-centered',
-        'route' => 'bookFormSubmit',
+        'route' => 'bookOrderFormSubmit',
     ])
 }}
 
+    <?php if (! empty($bookOrder)) { ?>
+        {{ Form::model($bookOrder) }}
+    <?php } ?>
+
     {{ Form::honeypot('user_name', 'user_time') }}
-    @if ($errors->bookForm->has('user_time'))
+    @if ($errors->bookOrderForm->has('user_time'))
         <p>
             <span class="help-block">
                 <i class="fa fa-exclamation-circle"></i>
-                {{ $errors->bookForm->first('user_time') }}
+                {{ $errors->bookOrderForm->first('user_time') }}
             </span>
         </p>
     @else
-        <p class="form-control">
-            Lorem ipsum please don't sue dolor sit amet.
+        <p>
+            Her kan du bestille boka «Norges&nbsp;anonyme&nbsp;diktere». Den inneholder et utvalg av diktene sendt inn. Noen er beriket med illustrasjoner.
+            <br>
+            Boka koster 100 kroner, inkludert frakt. Giro følger med boka. Vi sender normalt innen tre virkedager etter at bestillingen er mottatt.
         </p>
 
         <p class="form-control">
             {{ Form::label('name', 'Navn', ['class' => 'hide']) }}
-            @if ($errors->bookForm->has('name'))
+            @if ($errors->bookOrderForm->has('name'))
                 <span class="help-block">
                     <i class="fa fa-exclamation-circle"></i>
-                    {{ $errors->bookForm->first('name') }}
+                    {{ $errors->bookOrderForm->first('name') }}
                 </span>
             @endif
             {{
@@ -47,11 +53,55 @@
         </p>
 
         <p class="form-control">
-            {{ Form::label('address', 'Adresse', ['class' => 'hide']) }}
-            @if ($errors->bookForm->has('address'))
+            {{ Form::label('email', 'E-post', ['class' => 'hide']) }}
+            @if ($errors->bookOrderForm->has('email'))
                 <span class="help-block">
                     <i class="fa fa-exclamation-circle"></i>
-                    {{ $errors->bookForm->first('address') }}
+                    {{ $errors->bookOrderForm->first('email') }}
+                </span>
+            @endif
+            {{
+                Form::text(
+                    'email',
+                    null,
+                    [
+                        'autocomplete' => 'off',
+                        'class' => 'text-field',
+                        'placeholder' => 'E-post',
+                        'spellcheck' => 'false',
+                    ]
+                )
+            }}
+        </p>
+
+        <p class="form-control">
+            {{ Form::label('phone', 'Telefon', ['class' => 'hide']) }}
+            @if ($errors->bookOrderForm->has('phone'))
+                <span class="help-block">
+                    <i class="fa fa-exclamation-circle"></i>
+                    {{ $errors->bookOrderForm->first('phone') }}
+                </span>
+            @endif
+            {{
+                Form::text(
+                    'phone',
+                    null,
+                    [
+                        'autocomplete' => 'off',
+                        'class' => 'text-field',
+                        'placeholder' => 'Telefon',
+                        'spellcheck' => 'false',
+                    ]
+                )
+            }}
+        </p>
+
+        <p class="form-control">
+            {{ Form::label('address', 'Adresse', ['class' => 'hide']) }}
+            @if ($errors->bookOrderForm->has('address'))
+                <span class="help-block">
+                    <i class="fa fa-exclamation-circle"></i>
+                    {{ $errors->bookOrderForm->first('address') }}
                 </span>
             @endif
             {{
@@ -71,10 +121,10 @@
         <p class="row form-control">
             <span class="columns small-6">
                 {{ Form::label('postal_area', 'Poststed', ['class' => 'hide']) }}
-                @if ($errors->bookForm->has('postal_area'))
+                @if ($errors->bookOrderForm->has('postal_area'))
                     <span class="help-block">
                         <i class="fa fa-exclamation-circle"></i>
-                        {{ $errors->bookForm->first('postal_area') }}
+                        {{ $errors->bookOrderForm->first('postal_area') }}
                     </span>
                 @endif
                 {{
@@ -93,10 +143,10 @@
 
             <span class="columns small-6">
                 {{ Form::label('zip', 'Postnummer', ['class' => 'hide']) }}
-                @if ($errors->bookForm->has('zip'))
+                @if ($errors->bookOrderForm->has('zip'))
                     <span class="help-block">
                         <i class="fa fa-exclamation-circle"></i>
-                        {{ $errors->bookForm->first('zip') }}
+                        {{ $errors->bookOrderForm->first('zip') }}
                     </span>
                 @endif
                 {{
@@ -112,6 +162,23 @@
                     )
                 }}
             </span>
+        </p>
+
+        <p class="form-control">
+            {{ Form::label('other', 'Annet (valgfritt)', ['class' => 'hide']) }}
+            {{
+                Form::textarea(
+                    'other',
+                    null,
+                    [
+                        'autocomplete' => 'off',
+                        'class' => 'text-field',
+                        'placeholder' => 'Annet (valgfritt)',
+                        'spellcheck' => 'false',
+                        'rows' => 5,
+                    ]
+                )
+            }}
         </p>
 
         <p class="form-control">

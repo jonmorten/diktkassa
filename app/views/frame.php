@@ -34,7 +34,7 @@
 
 		<?php if (! empty($showBookBanner)) { ?>
 			<div class="book-banner">
-				<a href="<?php echo URL::route('bookForm') ?>">Bestill boka!</a>
+				<a href="<?php echo URL::route('bookOrderForm') ?>">Bestill boka!</a>
 			</div>
 		<?php } ?>
 

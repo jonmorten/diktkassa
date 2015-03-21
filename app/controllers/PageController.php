@@ -47,17 +47,34 @@ class PageController extends BaseController
 		return View::make('frame', $frameData)->nest('content', 'page/randomPoem', $contentData);
 	}
 
-	public function pageBookForm()
+	public function pageBookOrderForm()
 	{
 		$contentData = [
-			'message' => Session::get('message', false),
-			'poemTitle' => Session::get('poemTitle', false),
-			'poemText' => Session::get('poemText', false),
+			'bookOrder' => Session::get('bookOrder', false),
 		];
 		$frameData = [
 			'poemCount' => PoemController::getPoemCount(),
 		];
-		return View::make('frame', $frameData)->nest('content', 'page/bookForm', $contentData);
+
+		return View::make('frame', $frameData)->nest('content', 'page/bookOrderForm', $contentData);
+	}
+
+	public function pageBookOrderConfirm()
+	{
+		$bookOrder = Session::get('bookOrder', false);
+		if (empty($bookOrder)) {
+			return Redirect::route('bookOrderForm');
+		}
+		$bookOrder = array_map('htmlentities', $bookOrder);
+		$bookOrder = array_map('nl2br', $bookOrder);
+
+		$contentData = [
+			'bookOrder' => $bookOrder,
+		];
+		$frameData = [
+			'poemCount' => PoemController::getPoemCount(),
+		];
+		return View::make('frame', $frameData)->nest('content', 'page/bookOrderConfirm', $contentData);
 	}
 
 }

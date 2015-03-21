@@ -15,7 +15,6 @@ Route::get('/',[
 	'as' => 'frontpage',
 	'uses' => 'PageController@pageFrontpage',
 ]);
-
 Route::post('/', [
 	'as' => 'poemFormSubmit',
 	'uses' => 'PoemController@formSubmit',
@@ -29,18 +28,25 @@ Route::get('/les/{mode?}', [
 Route::get('/json/getPoemRateInfo', [
 	'uses' => 'PoemController@jsonGetPoemRateInfo',
 ]);
-
 Route::post('/json/postPoemRate', [
 	'as' => 'jsonPostPoemRate',
 	'uses' => 'PoemController@jsonPostPoemRate',
 ]);
 
 Route::get('/bestill',[
-	'as' => 'bookForm',
-	'uses' => 'PageController@pageBookForm',
+	'as' => 'bookOrderForm',
+	'uses' => 'PageController@pageBookOrderForm',
+]);
+Route::post('/bestill',[
+	'as' => 'bookOrderFormSubmit',
+	'uses' => 'BookOrderController@formSubmit',
 ]);
 
-Route::post('/bestill',[
-	'as' => 'bookFormSubmit',
-	'uses' => 'BookFormController@formSubmit',
+Route::get('/bekreft',[
+	'as' => 'bookOrderConfirm',
+	'uses' => 'PageController@pageBookOrderConfirm',
+]);
+Route::post('/bekreft',[
+	'as' => 'bookOrderConfirmSubmit',
+	'uses' => 'BookOrderController@confirmSubmit',
 ]);
