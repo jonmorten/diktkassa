@@ -5,7 +5,7 @@ class BookOrderController extends BaseController
 
 	protected $formRules = [
 		'user_name' => 'honeypot',
-		'user_time' => 'required|honeytime:2',
+		'user_time' => 'required|honeytime:1',
 		'name' => 'required',
 		'phone' => 'required',
 		'email' => 'required|email',

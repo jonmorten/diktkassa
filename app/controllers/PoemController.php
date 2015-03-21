@@ -5,7 +5,7 @@ class PoemController extends BaseController
 
 	protected $formRules = [
 		'user_name' => 'honeypot',
-		'user_time' => 'required|honeytime:2',
+		'user_time' => 'required|honeytime:1',
 		'poem_title' => 'required',
 		'poem_text' => 'required',
 	];
