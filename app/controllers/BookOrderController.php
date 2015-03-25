@@ -60,6 +60,18 @@ class BookOrderController extends BaseController
 		$bookOrder = array_map('nl2br', $bookOrder);
 		$emailData = ['time' => date('Y.m.d H:i:s', time())] + $bookOrder;
 
+		// Send mail to customer
+		Session::set('customerEmail', $emailData['email']);
+		Session::set('customerName', $emailData['name']);
+		Mail::send('emails.bookOrder', $emailData, function($message)
+		{
+			$message
+				->subject('Bekreftelse på din bestilling fra Diktkassa')
+				->from($_ENV['order_email'], 'Diktkassa')
+				->to(Session::get('customerEmail', false), Session::get('customerName', false));
+		});
+
+		// Send mail to us
 		Mail::send('emails.bookOrder', $emailData, function($message)
 		{
 			$message
