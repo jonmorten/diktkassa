@@ -27,7 +27,7 @@
         <p>
             Her kan du bestille boka «Norges&nbsp;anonyme&nbsp;diktere». Den inneholder et utvalg av diktene sendt inn. Noen er beriket med illustrasjoner.
             <br>
-            Boka koster 100 kroner, inkludert frakt. Giro følger med boka. Vi sender normalt innen tre virkedager etter at bestillingen er mottatt.
+            Boka koster 100 kroner og frakt er gratis til hele Norge. Giro følger med boka. Vi sender normalt innen tre virkedager etter at bestillingen er mottatt.
         </p>
 
         <p class="form-control">
