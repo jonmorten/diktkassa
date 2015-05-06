@@ -303,7 +303,7 @@ button,
         right: -80px;
         text-transform: uppercase;
         top: 55px;
-        transform: rotate(45deg);
+        @include vendor-prefix(transform, rotate(45deg));
         width: 300px;
     }
 }
