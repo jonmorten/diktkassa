@@ -1,7 +1,7 @@
 <?php if ($poem) { ?>
-    <div class="columns small-12 small-centered medium-7 medium-centered large-5 large-centered">
+    <div class="columns small-12 small-centered medium-7 medium-centered large-7 large-centered">
         <div class="row">
-            <div class="form-action columns small-6">
+            <div class="form-action columns small-4">
                 <div class="split-button-wrapper">
                     <?php if ($mode === 'siste') { ?>
                         <a class="button" href="{{ URL::route('randomPoem') }}/siste">Les et til</a>
@@ -54,8 +54,11 @@
                     </li>
                 </ul>
             </div>
-            <p class="form-action columns small-6">
+            <p class="form-action columns small-4">
                 <a class="button" href="{{ URL::route('frontpage') }}">Skriv</a>
+            </p>
+            <p class="form-action columns small-4">
+                <a href="{{ URL::route('musicStream') }}" class="button">Musikk</a>
             </p>
         </div>
         <article class="poem">

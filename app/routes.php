@@ -50,3 +50,8 @@ Route::post('/bekreft',[
 	'as' => 'bookOrderConfirmSubmit',
 	'uses' => 'BookOrderController@confirmSubmit',
 ]);
+
+Route::get('/musikk/{poem?}',[
+	'as' => 'musicStream',
+	'uses' => 'PageController@pageMusicStream',
+]);

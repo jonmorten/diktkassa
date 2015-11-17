@@ -57,6 +57,21 @@ CREATE TABLE IF NOT EXISTS poem_ratings (
 ) ENGINE=InnoDB;
 ```
 
+#### Music table
+
+Create a table to store the songs from soundcloud.
+
+```sql
+CREATE TABLE IF NOT EXISTS music (
+  id int(32) NOT NULL AUTO_INCREMENT,
+  poemid int(11) NOT NULL,
+  urlalias mediumtext NOT NULL,
+  songurl longtext NOT NULL,
+  title longtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+```
+
 ### Apache
 
 ```apache

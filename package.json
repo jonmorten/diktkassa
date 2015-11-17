@@ -11,7 +11,7 @@
     "grunt-browserify": "~2.1.0",
     "grunt-cli": "~0.1.13",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-sass": "0.12",
+    "grunt-sass": "0.14.0",
     "uglifyify": "^2.5.0"
   },
   "browserify": {
@@ -23,7 +23,9 @@
     "Modernizr": "./public/vendor/modernizr/modernizr.js",
     "jquery": "./public/vendor/jquery/dist/jquery.min.js",
     "fingerprint": "./public/vendor/fingerprint/fingerprint.js",
-    "foundation": "./public/vendor/foundation/js/foundation.js"
+    "foundation": "./public/vendor/foundation/js/foundation.js",
+    "soundcloud-api": "./public/vendor/soundcloud/js/soundcloud.player.api.js",
+    "soundcloud-player": "./public/vendor/soundcloud/js/sc-player.js"
   },
   "browserify-shim": {
     "Modernizr": {

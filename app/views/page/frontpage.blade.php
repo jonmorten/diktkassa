@@ -6,7 +6,7 @@
 
 {{
 	Form::open([
-		'class' => 'columns small-12 small-centered medium-7 medium-centered large-5 large-centered',
+		'class' => 'columns small-12 small-centered medium-7 medium-centered large-7 large-centered',
 		'route' => 'poemFormSubmit',
 	])
 }}
@@ -21,11 +21,14 @@
 		</p>
 	@else
 		<div class="row">
-			<p class="form-action columns small-6">
+			<p class="form-action columns small-4">
 				<a href="{{ URL::route('randomPoem') }}" class="button">Les</a>
 			</p>
-			<p class="form-action columns small-6">
+			<p class="form-action columns small-4">
 				{{ Form::button('Send', ['type' => 'submit', 'class' => 'button']) }}
+			</p>
+			<p class="form-action columns small-4">
+				<a href="{{ URL::route('musicStream') }}" class="button">Musikk</a>
 			</p>
 		</div>
 

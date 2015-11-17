@@ -54,7 +54,7 @@ class PoemController extends BaseController
 		return Redirect::route('frontpage')->with('message', 'Oi - hva har hendt? <br> Jo: ditt dikt er sendt!');
 	}
 
-	protected static function getViewFriendlyPoem($poemId)
+	public static function getViewFriendlyPoem($poemId)
 	{
 		$poem = Poem::find($poemId);
 		$poemRating = $poem['rating'];

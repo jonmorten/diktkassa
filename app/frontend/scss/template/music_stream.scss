@@ -1,0 +1,127 @@
+.music-wrapper {
+	position: relative;
+}
+.sc-artwork-list,
+.sc-info-toggle,
+.sc-trackslist,
+.sc-info-close,
+.sc-buffer {
+	display: none;
+}
+.sc-info {
+	display: none;
+}
+
+.sc-player {
+	margin-top: 100px;
+}
+.sc-scrubber {
+	margin-top: 25px;
+}
+.sc-controls {
+    bottom: 16px;
+    left: -75px;
+    position: absolute;
+
+	.sc-play {
+		text-indent: -9999px;
+		display: block;
+		&:after {
+			@include font-awesome($fa-var-play);
+			text-indent: 0;
+			float: left;
+		}
+	}
+	.sc-pause {
+		text-indent: -9999px;
+		display: block;
+		&:after {
+			@include font-awesome($fa-var-pause);
+			text-indent: 0;
+			float: left;
+		}
+	}
+}
+.sc-player .sc-controls a.sc-pause{
+	display: none;
+}
+.sc-player.playing .sc-controls a.sc-play{
+	display: none;
+}
+.sc-player.playing .sc-controls a.sc-pause{
+	display: block;
+}
+.sc-waveform-container img {
+	visibility: hidden;
+}
+.sc-time-span {
+	display: block;
+	position: relative;
+	height: 8px;
+	width: 100%;
+	background: #BFC2C7;
+	border-radius: 3px;
+
+	.sc-waveform-container {
+		position: absolute;
+		background: #BFC2C7;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		border-radius: 3px;
+	}
+	.sc-played {
+		position: absolute;
+		background: #5C6E7F;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		border-radius: 3px;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+
+		&:after {
+			background-color: white;
+		    border-radius: 2px;
+		    content: "";
+		    display: block;
+		    height: 8px;
+		    position: absolute;
+		    right: -10px;
+		    width: 10px;
+		}
+	}
+}
+.sc-time-indicators {
+	position: relative;
+	text-indent: -9999px;
+
+	.sc-position {
+	    left: -45px;
+	    position: absolute;
+	    text-indent: 0;
+	    top: -15px;
+	}
+	.sc-duration {
+	    right: -45px;
+	    position: absolute;
+	    text-indent: 0;
+	    top: -15px;
+	}
+}
+.music-poem-title {
+	font-size: 18px;
+	font-family: 'Josefin Sans', sans-serif;
+	text-transform: uppercase;
+	color: #F39C12;
+	display: inline-block;
+	background-color: white;
+	border-radius: 40px;
+	padding: 16px 70px 10px 70px;
+}
+.music-info-text {
+	display: none;
+	text-align: center;
+	margin-top: 35px;
+}

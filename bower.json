@@ -20,6 +20,7 @@
     "jquery": "~2.1.1",
     "normalize.css": "~3.0.1",
     "modernizr": "~2.8.2",
-    "fingerprint": "~0.5.4"
+    "fingerprint": "~0.5.4",
+    "soundcloud": "https://github.com/soundcloud/soundcloud-custom-player.git"
   }
 }

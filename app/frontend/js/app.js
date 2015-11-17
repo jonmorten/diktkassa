@@ -15,6 +15,11 @@ $(document).ready(function( $ ) {
 		$('.info-text').toggle();
 		$('html, body').animate({scrollTop:$(document).height()}, 'slow');
 	});
+	$('.music-info-button').on('click touchstart', function(e) {
+		e.preventDefault();
+		$('.music-info-button').toggleClass('active');
+		$('.music-info-text').toggle();
+	});
 
 	// Poem rating
 	(function() {
@@ -91,6 +96,12 @@ $(document).ready(function( $ ) {
 		});
 
 		$ratePoemButton.on('click.ratePoemButton touchstart.ratePoemButton', rateEventHandler);
+	})();
+
+	// Soundcloud player
+	(function() {
+		require('soundcloud-player');
+		require('soundcloud-api');
 	})();
 
 });

@@ -1,0 +1,14 @@
+.musiclist {
+	.song {
+		background: white none repeat scroll 0 0;
+	    border-radius: 3px;
+	    color: #f39c12;
+	    margin: 20px 0;
+	    padding: 15px 30px;
+	    display: block;
+
+		&:hover {
+			opacity: 0.9;
+		}
+	}
+}

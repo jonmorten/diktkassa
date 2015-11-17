@@ -5,3 +5,8 @@
 	-o-#{$name}: #{$argument};
 	#{$name}: #{$argument};
 }
+
+@mixin font-awesome($var) {
+	font-family: 'FontAwesome';
+	content: $var;
+}
