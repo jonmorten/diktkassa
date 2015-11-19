@@ -68,6 +68,7 @@ CREATE TABLE IF NOT EXISTS music (
   urlalias mediumtext NOT NULL,
   songurl longtext NOT NULL,
   title longtext NOT NULL,
+  ogImage longtext NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 ```

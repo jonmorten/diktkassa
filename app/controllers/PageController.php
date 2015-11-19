@@ -95,6 +95,7 @@ class PageController extends BaseController
 			];
 			$frameData = [
 				'poemCount' => PoemController::getPoemCount(),
+				'ogImage' => !empty($music['ogImage']) ? $music['ogImage'] : false,
 			];
 			return View::make('frame', $frameData)->nest('content', 'page/musicStream', $contentData);
 		} else {
