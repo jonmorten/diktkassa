@@ -101,8 +101,6 @@ CREATE TABLE IF NOT EXISTS music (
 
 Copy the file _.env.example_ to _.env_ and replace all the values.
 
-In the site root, e.g. _/var/www/diktkassa_, create the file _.env.php_. Base it on this template - replace the values:
-
 The Google Analytics tracking ID is optional.
 
 ### Storage
