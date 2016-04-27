@@ -4,12 +4,7 @@ A digital baby hatch for poems.
 
 ## Requirements
 
-* A LAMP box
-	* MySQL
-	* PHP 5.4 or newer
-	* [Composer](https://getcomposer.org)
-	* _php5-mcrypt_ - you can probably just run `apt-get install php5-mcrypt`
-	* [Bower](http://bower.io)
+See [Laravel 5.2 Server Requirements](https://laravel.com/docs/5.2#server-requirements)
 
 ## Installation
 
@@ -104,25 +99,9 @@ CREATE TABLE IF NOT EXISTS music (
 
 ### Environment file
 
+Copy the file _.env.example_ to _.env_ and replace all the values.
+
 In the site root, e.g. _/var/www/diktkassa_, create the file _.env.php_. Base it on this template - replace the values:
-
-```php
-<?php
-
-return [
-	'database' => [
-		'host' => 'localhost',
-		'database' => 'diktkassa',
-		'username' => 'diktkassa',
-		'password' => 'diktkassa',
-	],
-	'ga_tracking_id' => 'UA-XXXXXXXX-X',
-	'mandril_api_key' => 'ABCDEFGHIJKLMNOPQRSTUV',
-	'meta_description' => 'A digital baby hatch for poems.',
-	'poem_email' => 'your@email.com',
-	'order_email' => 'your@email.com',
-];
-```
 
 The Google Analytics tracking ID is optional.
 
@@ -131,5 +110,5 @@ The Google Analytics tracking ID is optional.
 In the site root, e.g. _/var/www/diktkassa_, create the storage structure
 
 ```bash
-mkdir -p app/storage/{cache,logs,meta,sessions,views}
+mkdir -p storage/{app,framework,logs} storage/framework/{cache,sessions,views}
 ```

@@ -30,8 +30,7 @@ module.exports = function (grunt) {
 				options: {
 					includePaths: grunt.option('sass.includePaths'),
 					outputStyle: 'expanded',
-					sourceComments: 'map',
-					sourceMap: true
+					sourceMap: false
 				},
 				files: grunt.option('sass.files')
 			}

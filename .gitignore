@@ -1,13 +1,12 @@
 /bootstrap/compiled.php
 /vendor
 composer.phar
-.env.*.php
-.env.php
+.env
 .DS_Store
 Thumbs.db
-/app/storage
 /node_modules
 /public/vendor
 /public/css/app.css.map
 /public/css/app.css
 /public/js/app.js
+/storage

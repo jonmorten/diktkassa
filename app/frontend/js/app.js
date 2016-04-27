@@ -48,6 +48,7 @@ $(document).ready(function( $ ) {
 		};
 
 		var poem_id = $ratePoemButton.data('rate-poem');
+		var csrf = $ratePoemButton.data('csrf');
 		var Fingerprint = require('fingerprint');
 		var fingerprint = new Fingerprint({canvas: true}).get();
 
@@ -79,7 +80,8 @@ $(document).ready(function( $ ) {
 								data: {
 									'fingerprint': fingerprint,
 									'id': poem_id,
-									'rating': rating
+									'rating': rating,
+									'_token': csrf
 								},
 								success: function (data, textStatus, jqXHR) {
 									rateRequestInProgress = false;
